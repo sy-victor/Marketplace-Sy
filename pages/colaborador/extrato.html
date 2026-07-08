@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Extrato</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+</style>
+</head>
+<body>
+
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="como-ganhar.html">Como ganhar</a>
+    <a href="extrato.html" class="active">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content">
+
+    <div class="dt-section-header mb-lg">
+      <h1 class="dt-section-title" style="font-size:22px;">📋 Extrato de Sympla Coins</h1>
+    </div>
+
+    <!-- Banner de saldo -->
+    <div class="dt-balance-card mb-xl">
+      <div>
+        <div class="dt-balance-label">Saldo atual</div>
+        <div class="dt-balance-value" style="display:flex;align-items:center;gap:8px;">
+          <img src="../../assets/sympla-coin.svg" alt="SC" style="width:28px;height:28px;" />
+          <span>1.250 Sympla Coins</span>
+        </div>
+        
+      </div>
+      <div class="dt-balance-stats">
+        <div class="dt-balance-stat">
+          <div class="dt-balance-stat-value">+2.800</div>
+          <div class="dt-balance-stat-label">Total recebido</div>
+        </div>
+        <div style="width:1px; background:rgba(255,255,255,0.25);"></div>
+        <div class="dt-balance-stat">
+          <div class="dt-balance-stat-value">-1.550</div>
+          <div class="dt-balance-stat-label">Total resgatado</div>
+        </div>
+        <div style="width:1px; background:rgba(255,255,255,0.25);"></div>
+        <div class="dt-balance-stat">
+          <div class="dt-balance-stat-value">9</div>
+          <div class="dt-balance-stat-label">Movimentações</div>
+        </div>
+      </div>
+      <div>
+        <a href="marketplace.html" class="dt-wallet-btn primary" style="margin-bottom:8px; display:block;">🛒 Resgatar</a>
+      </div>
+    </div>
+
+    <!-- Filtro de período -->
+    <div class="dt-card">
+      <div class="dt-card-title">
+        <span>Movimentações</span>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <select class="input-field" style="width:160px; padding:8px 12px; font-size:13px;" id="periodoSelect">
+            <option>Junho 2025</option>
+            <option>Maio 2025</option>
+            <option>Abril 2025</option>
+            <option>Todos</option>
+          </select>
+          <div class="dt-filter-chips" style="margin:0; gap:6px;">
+            <button class="dt-chip active" style="padding:6px 12px; font-size:12px;" onclick="filterExtrato(this,'todos')">Todos</button>
+            <button class="dt-chip" style="padding:6px 12px; font-size:12px;" onclick="filterExtrato(this,'entrada')">Entradas</button>
+            <button class="dt-chip" style="padding:6px 12px; font-size:12px;" onclick="filterExtrato(this,'saida')">Resgates</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela -->
+      <table class="dt-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Tipo</th>
+            <th style="text-align:right;">Sympla Coins</th>
+          </tr>
+        </thead>
+        <tbody id="extratoBody">
+          <tr data-type="entrada">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">09/06/2025 · 14h30</td>
+            <td>
+              <div style="font-weight:600;">Campanha Indicação Premiada</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Campanha finalizada com sucesso</div>
+            </td>
+            <td><span class="dt-tag dt-tag-ativo">Entrada</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-success); font-size:15px;">+200 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="saida">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">05/06/2025 · 10h12</td>
+            <td>
+              <div style="font-weight:600;">Resgate — iFood R$50</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Marketplace · Gift Card Alimentação</div>
+            </td>
+            <td><span class="dt-tag" style="background:rgba(239,68,68,0.1);color:var(--color-danger);">Resgate</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-danger); font-size:15px;">-500 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="entrada">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">28/05/2025 · 09h00</td>
+            <td>
+              <div style="font-weight:600;">Meta de Vendas Q1 — Concluída</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Campanha · 100% da meta atingida</div>
+            </td>
+            <td><span class="dt-tag dt-tag-ativo">Entrada</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-success); font-size:15px;">+200 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="entrada">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">25/05/2025 · 08h45</td>
+            <td>
+              <div style="font-weight:600;">Sympla em Movimento — Semana 22</div>
+              <div style="font-size:12px; color:var(--color-text-light);">3 atividades registradas na semana</div>
+            </td>
+            <td><span class="dt-tag dt-tag-ativo">Entrada</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-success); font-size:15px;">+100 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="saida">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">20/05/2025 · 11h00</td>
+            <td>
+              <div style="font-weight:600;">Resgate — Cinemark 2 ingressos</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Marketplace · Entretenimento</div>
+            </td>
+            <td><span class="dt-tag" style="background:rgba(239,68,68,0.1);color:var(--color-danger);">Resgate</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-danger); font-size:15px;">-200 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="entrada">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">15/05/2025 · 16h20</td>
+            <td>
+              <div style="font-weight:600;">Reconhecimento de Pares</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Pedro Silva te reconheceu</div>
+            </td>
+            <td><span class="dt-tag dt-tag-ativo">Entrada</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-success); font-size:15px;">+150 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="saida">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">10/05/2025 · 09h30</td>
+            <td>
+              <div style="font-weight:600;">Resgate — Spotify Premium</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Marketplace · Entretenimento</div>
+            </td>
+            <td><span class="dt-tag" style="background:rgba(239,68,68,0.1);color:var(--color-danger);">Resgate</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-danger); font-size:15px;">-150 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="entrada">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">05/05/2025 · 08h00</td>
+            <td>
+              <div style="font-weight:600;">Treinamento Compliance</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Conclusão de treinamento obrigatório</div>
+            </td>
+            <td><span class="dt-tag dt-tag-ativo">Entrada</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-success); font-size:15px;">+200 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+          <tr data-type="saida">
+            <td style="color:var(--color-text-light); font-size:13px; white-space:nowrap;">01/05/2025 · 14h00</td>
+            <td>
+              <div style="font-weight:600;">Resgate — Rappi Gift Card</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Marketplace · Alimentação</div>
+            </td>
+            <td><span class="dt-tag" style="background:rgba(239,68,68,0.1);color:var(--color-danger);">Resgate</span></td>
+            <td style="text-align:right; font-weight:700;">
+              <div style="color:var(--color-danger); font-size:15px;">-200 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+  function filterExtrato(btn, type) {
+    document.querySelectorAll('.dt-filter-chips .dt-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#extratoBody tr').forEach(row => {
+      row.style.display = type === 'todos' || row.dataset.type === type ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

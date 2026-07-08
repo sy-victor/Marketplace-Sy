@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Marketplace</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+</style>
+</head>
+<body>
+
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html">Home</a>
+    <a href="marketplace.html" class="active">Marketplace</a>
+    <a href="como-ganhar.html">Como ganhar</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content">
+
+    <div class="dt-section-header mb-lg">
+      <h1 class="dt-section-title" style="font-size:22px;">🛒 Marketplace</h1>
+    </div>
+
+    <!-- Busca -->
+    <div class="dt-search-bar">
+      <span>🔍</span>
+      <input type="search" placeholder="Buscar benefício ou brinde..." id="mktSearch" oninput="filterMkt()" />
+    </div>
+
+    <!-- Filtros: Todos | Brindes Sympla -->
+    <div class="dt-filter-chips" id="mktFilters">
+      <button class="dt-chip active" data-cat="todos" onclick="setMktFilter(this,'todos')">Todos</button>
+      <button class="dt-chip" data-cat="brindes" onclick="setMktFilter(this,'brindes')">🎁 Brindes Sympla</button>
+    </div>
+
+    <!-- Grid 4 colunas -->
+    <div class="dt-grid-4" id="mktGrid">
+
+      <!-- Brindes Sympla -->
+      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-camisa')">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#cce8ff);">👕</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-card-name">Camiseta Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo · Edição limitada</div>
+          <div class="dt-mkt-card-price">300 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn">Resgatar</button>
+        </div>
+      </div>
+
+      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-mochila')">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#cce8ff);">🎒</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-card-name">Mochila Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo · Premium</div>
+          <div class="dt-mkt-card-price">800 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn">Resgatar</button>
+        </div>
+      </div>
+
+      <div class="dt-mkt-card" data-cat="brindes">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#f5f7fa,#e5e7eb);">🧢</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-badge-esgotado">Esgotado</div>
+          <div class="dt-mkt-card-name">Boné Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo</div>
+          <div class="dt-mkt-card-price" style="color:var(--color-text-light);">200 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn esgotado" disabled>Esgotado</button>
+        </div>
+      </div>
+
+      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-caneca')">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#cce8ff);">☕</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-card-name">Caneca Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo · Cerâmica</div>
+          <div class="dt-mkt-card-price">150 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn">Resgatar</button>
+        </div>
+      </div>
+
+      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-caderno')">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#fff9e6,#ffe066);">📓</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-card-name">Caderno Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo · Capa dura A5</div>
+          <div class="dt-mkt-card-price">120 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn">Resgatar</button>
+        </div>
+      </div>
+
+      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-leque')">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6fff0,#b4f0c8);">🪭</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-card-name">Leque Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo · Edição especial</div>
+          <div class="dt-mkt-card-price">80 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn">Resgatar</button>
+        </div>
+      </div>
+
+      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-adesivos')">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#fce7f3,#f9a8d4);">🎨</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-card-name">Pack de Adesivos Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo · 12 adesivos temáticos</div>
+          <div class="dt-mkt-card-price">60 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn">Resgatar</button>
+        </div>
+      </div>
+
+      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-suporte')">
+        <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#93c5fd);">🧋</div>
+        <div class="dt-mkt-card-body">
+          <div class="dt-mkt-card-name">Suporte de Copo Sympla</div>
+          <div class="dt-mkt-card-brand">Brinde exclusivo · Silicone antiderrapante</div>
+          <div class="dt-mkt-card-price">90 <span>Sympla Coins</span></div>
+          <button class="dt-mkt-card-btn">Resgatar</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.dt-grid-4 -->
+
+  </main>
+</div>
+
+<!-- Modal de confirmação -->
+<div class="dt-modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="dt-modal">
+    <div style="font-size:48px; text-align:center; margin-bottom:16px;" id="modalEmoji">🎁</div>
+    <div class="dt-modal-title" id="modalTitle">Confirmar resgate</div>
+    <div class="dt-modal-sub" id="modalDesc">Você tem <strong id="modalSaldoAtual"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /> 1.250</strong> Sympla Coins.</div>
+    <div class="dt-modal-price" id="modalPrice"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 300 Sympla Coins</div>
+    <div style="font-size:13px; color:var(--color-text-light);">Saldo após resgate: <strong id="modalSaldo"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /> 750</strong></div>
+    <div class="dt-modal-actions">
+      <button style="background:var(--color-bg); color:var(--color-text);" onclick="closeModal()">Cancelar</button>
+      <button style="background:var(--color-primary); color:white;" onclick="confirmResgate()">Confirmar resgate</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const items = {
+    'modal-camisa':    { emoji:'👕', name:'Camiseta Sympla',         price:300, desc:'Brinde exclusivo Sympla · Edição limitada', estoque:8 },
+    'modal-mochila':   { emoji:'🎒', name:'Mochila Sympla',          price:800, desc:'Brinde exclusivo Sympla · Premium', estoque:3 },
+    'modal-caneca':     { emoji:'☕', name:'Caneca Sympla',           price:150, desc:'Brinde exclusivo · Cerâmica premium', estoque:12 },
+    'modal-caderno':    { emoji:'📓', name:'Caderno Sympla',         price:120, desc:'Brinde exclusivo · Capa dura A5', estoque:15 },
+    'modal-leque':     { emoji:'🪭', name:'Leque Sympla',           price:80,  desc:'Brinde exclusivo · Edição especial', estoque:20 },
+    'modal-adesivos':  { emoji:'🎨', name:'Pack de Adesivos Sympla', price:60,  desc:'Brinde exclusivo · 12 adesivos temáticos', estoque:50 },
+    'modal-suporte':   { emoji:'🧋', name:'Suporte de Copo Sympla',  price:90,  desc:'Brinde exclusivo · Silicone antiderrapante', estoque:10 },
+  };
+  let currentItemId = null;
+
+  let currentSaldo = 1250;
+
+  function openModal(id) {
+    const item = items[id];
+    if (!item) return;
+    if (item.estoque <= 0) {
+      showEsgotadoMsg(item.name);
+      return;
+    }
+    currentItemId = id;
+    document.getElementById('modalEmoji').textContent = item.emoji;
+    document.getElementById('modalTitle').textContent = item.name;
+    document.getElementById('modalDesc').textContent = item.desc;
+    document.getElementById('modalPrice').innerHTML = '<img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> ' + item.price + ' Sympla Coins';
+    document.getElementById('modalSaldo').innerHTML = '<img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /> ' + (currentSaldo - item.price);
+    document.getElementById('modalOverlay').setAttribute('data-price', item.price);
+    document.getElementById('modalOverlay').classList.add('active');
+  }
+
+  function closeModal(e) {
+    if (!e || e.target === document.getElementById('modalOverlay')) {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+  }
+
+  function confirmResgate() {
+    const item = items[currentItemId];
+    if (!item) return;
+
+    if (item.estoque <= 0) {
+      document.getElementById('modalOverlay').classList.remove('active');
+      showEsgotadoMsg(item.name);
+      return;
+    }
+
+    item.estoque -= 1;
+
+    const price = parseInt(document.getElementById('modalOverlay').getAttribute('data-price'));
+    currentSaldo -= price;
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.querySelectorAll('.dt-topbar-coins').forEach(el => el.innerHTML = '<img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> ' + currentSaldo.toLocaleString('pt-BR') + '');
+
+    if (item.estoque <= 0) {
+      document.querySelectorAll('.dt-mkt-card').forEach(card => {
+        if (card.getAttribute('onclick') && card.getAttribute('onclick').includes(currentItemId)) {
+          const btn = card.querySelector('.dt-mkt-card-btn');
+          if (btn) { btn.textContent = 'Esgotado'; btn.disabled = true; btn.classList.add('esgotado'); }
+          card.removeAttribute('onclick');
+        }
+      });
+    }
+
+    showSucessoMsg(item.name, price);
+  }
+
+  function showEsgotadoMsg(nome) {
+    const toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-width:380px;text-align:center;';
+    toast.textContent = '⚠️ Este item esgotou agora. Seu saldo não foi afetado.';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+  }
+
+  function showSucessoMsg(nome, preco) {
+    const toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#22c55e;color:#fff;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-width:380px;text-align:center;';
+    toast.textContent = '✅ Resgate confirmado! ' + nome + ' — você receberá em até 2 dias úteis.';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 5000);
+  }
+
+  let currentCat = 'todos';
+
+  function setMktFilter(btn, cat) {
+    currentCat = cat;
+    document.querySelectorAll('.dt-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterMkt();
+  }
+
+  function filterMkt() {
+    const search = document.getElementById('mktSearch').value.toLowerCase();
+    document.querySelectorAll('#mktGrid .dt-mkt-card').forEach(card => {
+      const cat = card.dataset.cat;
+      const text = card.textContent.toLowerCase();
+      const matchCat = currentCat === 'todos' || cat === currentCat;
+      const matchSearch = !search || text.includes(search);
+      card.style.display = matchCat && matchSearch ? 'flex' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

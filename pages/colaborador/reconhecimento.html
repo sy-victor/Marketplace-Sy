@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Reconhecimento</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+</style>
+</head>
+<body>
+
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content" style="max-width:900px;">
+
+    <div style="margin-bottom:20px;">
+      <a href="dashboard.html" style="font-size:14px; color:var(--color-primary); text-decoration:none; font-weight:600;">← Voltar ao Dashboard</a>
+    </div>
+
+    <div class="dt-section-header mb-lg">
+      <h1 class="dt-section-title" style="font-size:22px;">⭐ Reconhecimento de Pares</h1>
+    </div>
+
+    <!-- Hero -->
+    <div class="dt-card mb-xl" style="text-align:center; padding:40px;">
+      <div style="font-size:56px; margin-bottom:16px;">🤝</div>
+      <div style="font-size:22px; font-weight:700; margin-bottom:8px;">Reconheça quem faz a diferença</div>
+      <p style="font-size:15px; color:var(--color-text-light); max-width:480px; margin:0 auto 24px; line-height:1.6;">
+        Valorize os colegas que colaboram, inovam e entregam resultados. Cada reconhecimento gera 50 Sympla Coins para quem recebe.
+      </p>
+      <button class="btn btn-primary" style="padding:14px 32px; font-size:15px;" onclick="document.getElementById('formReconh').scrollIntoView({behavior:'smooth'})">
+        ⭐ Reconhecer colega
+      </button>
+    </div>
+
+    <div class="dt-grid-2" style="align-items:start;">
+
+      <!-- Últimos reconhecimentos recebidos -->
+      <div>
+        <div class="dt-card">
+          <div class="dt-card-title">Reconhecimentos recebidos</div>
+
+          <div class="dt-reconh-card">
+            <div class="dt-reconh-avatar">PS</div>
+            <div style="flex:1;">
+              <div style="font-size:14px; font-weight:700; margin-bottom:2px;">Pedro Silva te reconheceu</div>
+              <div style="font-size:13px; color:var(--color-text-light); margin-bottom:4px;">"Ana, obrigado pela parceria no fechamento do Q1!"</div>
+              <div style="font-size:11px; color:var(--color-text-light);">15/05/2025 · 16h20</div>
+            </div>
+            <div style="font-size:14px; font-weight:700; color:var(--color-success); white-space:nowrap;">🪙 +50</div>
+          </div>
+
+          <div class="dt-reconh-card">
+            <div class="dt-reconh-avatar" style="background:var(--color-success);">LC</div>
+            <div style="flex:1;">
+              <div style="font-size:14px; font-weight:700; margin-bottom:2px;">Laura Costa te reconheceu</div>
+              <div style="font-size:13px; color:var(--color-text-light); margin-bottom:4px;">"Sua apresentação no All Hands foi incrível!"</div>
+              <div style="font-size:11px; color:var(--color-text-light);">10/05/2025 · 11h00</div>
+            </div>
+            <div style="font-size:14px; font-weight:700; color:var(--color-success); white-space:nowrap;">🪙 +50</div>
+          </div>
+
+          <div class="dt-reconh-card">
+            <div class="dt-reconh-avatar" style="background:var(--color-warning);">MR</div>
+            <div style="flex:1;">
+              <div style="font-size:14px; font-weight:700; margin-bottom:2px;">Marcos Rocha te reconheceu</div>
+              <div style="font-size:13px; color:var(--color-text-light); margin-bottom:4px;">"Sempre presente e comprometida. Top demais!"</div>
+              <div style="font-size:11px; color:var(--color-text-light);">02/05/2025 · 09h30</div>
+            </div>
+            <div style="font-size:14px; font-weight:700; color:var(--color-success); white-space:nowrap;">🪙 +50</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário de reconhecimento -->
+      <div>
+        <div class="dt-card" id="formReconh">
+          <div class="dt-card-title">Reconhecer um colega</div>
+
+          <div style="margin-bottom:16px;">
+            <label class="input-label">Quem você quer reconhecer?</label>
+            <select class="input-field" style="width:100%;">
+              <option value="">Selecione um colega...</option>
+              <option>Pedro Silva — Comercial</option>
+              <option>Laura Costa — Marketing</option>
+              <option>Marcos Rocha — TI</option>
+              <option>Juliana Mendes — RH</option>
+              <option>Carlos Gomes — Produto</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <label class="input-label">Motivo do reconhecimento</label>
+            <div class="dt-filter-chips mb-md" style="flex-wrap:wrap;">
+              <button class="dt-chip active" style="font-size:12px; padding:6px 12px;">Colaboração</button>
+              <button class="dt-chip" style="font-size:12px; padding:6px 12px;">Inovação</button>
+              <button class="dt-chip" style="font-size:12px; padding:6px 12px;">Entrega</button>
+              <button class="dt-chip" style="font-size:12px; padding:6px 12px;">Liderança</button>
+              <button class="dt-chip" style="font-size:12px; padding:6px 12px;">Atitude</button>
+            </div>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label class="input-label">Mensagem personalizada</label>
+            <textarea class="input-field" style="width:100%; height:100px; resize:vertical; padding:12px;" placeholder="Escreva uma mensagem de reconhecimento..."></textarea>
+          </div>
+
+          <div style="background:var(--color-primary-light); border-radius:var(--radius-md); padding:14px; margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+            <span style="font-size:20px;">🪙</span>
+            <div style="font-size:13px;">
+              <strong>50 Sympla Coins</strong> serão creditados para o colega reconhecido.
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="width:100%; padding:14px; font-size:15px;" onclick="alert('⭐ Reconhecimento enviado! Seu colega recebeu 50 Sympla Coins.')">
+            ⭐ Enviar reconhecimento
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

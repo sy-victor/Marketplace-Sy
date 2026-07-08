@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Dashboard</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── Banners section (Bloco 4) ── */
+    .banners-section { margin-bottom: 28px; }
+    .banners-scroll {
+      display: flex; gap: 16px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      padding-bottom: 12px;
+      scrollbar-width: none;
+    }
+    .banners-scroll::-webkit-scrollbar { display: none; }
+    .banner-card {
+      min-width: 420px; width: 420px; height: 140px;
+      border-radius: 16px; padding: 20px 24px;
+      flex-shrink: 0; scroll-snap-align: start;
+      display: flex; align-items: stretch; box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .banner-content { display: flex; flex-direction: column; justify-content: space-between; }
+    .banner-tag {
+      font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.85);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .banner-content h3 { margin: 6px 0 0; font-size: 18px; font-weight: 700; color: #fff; }
+    .banner-content p { margin: 6px 0 0; font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .banners-dots { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
+    .banners-dots span {
+      width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .banners-dots span.active { background: #0097ff; }
+
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+
+    /* ── Fique por Dentro ── */
+    .fique-por-dentro-section { margin-bottom: 28px; }
+    .fique-por-dentro-title {
+      font-size: 16px; font-weight: 700; color: #1a0533;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .fique-por-dentro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .fique-por-dentro-grid { grid-template-columns: 1fr; }
+    }
+    .fpd-card {
+      background: #fff;
+      border: 1.5px solid #e2eaf4;
+      border-radius: 14px;
+      padding: 20px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: box-shadow 0.18s, border-color 0.18s;
+    }
+    .fpd-card:hover {
+      box-shadow: 0 4px 18px rgba(0,151,255,0.10);
+      border-color: #0097ff;
+    }
+    .fpd-card-icon { font-size: 28px; line-height: 1; }
+    .fpd-card-title {
+      font-size: 14px; font-weight: 700; color: #1a0533; margin: 0;
+    }
+    .fpd-card-text {
+      font-size: 13px; color: #5a6a7a; line-height: 1.5; margin: 0;
+    }
+    .fpd-card-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 12px; font-weight: 600; color: #0097ff;
+      text-decoration: none; margin-top: 4px;
+      transition: color 0.15s;
+    }
+    .fpd-card-link:hover { color: #007acc; }
+    .fpd-card-valores {
+      display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px;
+    }
+    .fpd-valor-tag {
+      background: #f0f7ff; color: #0055aa;
+      border-radius: 20px; padding: 2px 10px;
+      font-size: 11px; font-weight: 600;
+      white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html" class="active">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="como-ganhar.html">Como ganhar</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content">
+
+    <!-- Wallet banner -->
+    <div class="dt-wallet-banner">
+      <div class="dt-wallet-avatar">👩</div>
+      <div class="dt-wallet-info">
+        <div class="dt-wallet-greeting">Bom dia ☀️</div>
+        <div class="dt-wallet-name">Olá, Ana Lima!</div>
+        <div class="dt-wallet-role">Analista · Equipe Comercial SP</div>
+      </div>
+      <div class="dt-wallet-balance">
+        <div class="dt-wallet-balance-label">Seu saldo atual</div>
+        <div class="dt-wallet-balance-value" style="display:flex;align-items:center;gap:8px;">
+          <img src="../../assets/sympla-coin.svg" alt="Sympla Coin" style="width:28px;height:28px;" />
+          <span>1.250 Sympla Coins</span>
+        </div>
+        
+      </div>
+      <div class="dt-wallet-actions">
+        <a href="marketplace.html" class="dt-wallet-btn primary">🛒 Resgatar</a>
+        <a href="extrato.html" class="dt-wallet-btn">📋 Extrato</a>
+      </div>
+    </div>
+
+
+    <!-- Mural de Banners -->
+    <section class="banners-section">
+      <div class="banners-scroll" id="bannersScroll">
+        <!-- Banner 1 -->
+        <div class="banner-card" style="background: linear-gradient(135deg, #1a0533, #3b0f6e)">
+          <div class="banner-content">
+            <span class="banner-tag">🎉 Novidade</span>
+            <h3>Bem-vindo ao Sympler!</h3>
+            <p>Acumule Sympla Coins e resgate brindes exclusivos da Sympla no marketplace.</p>
+          </div>
+        </div>
+        <!-- Banner 2 -->
+        <div class="banner-card" style="background: linear-gradient(135deg, #0097ff, #0066cc)">
+          <div class="banner-content">
+            <span class="banner-tag">🤝 Reconhecimento</span>
+            <h3>Reconheça um colega hoje</h3>
+            <p>Envie um reconhecimento e ambos ganham 50 SC. Valorize quem faz a diferença!</p>
+          </div>
+        </div>
+      </div>
+      <div class="banners-dots">
+        <span class="active"></span>
+        <span></span>
+      </div>
+    </section>
+
+    <!-- Fique por Dentro -->
+    <section class="fique-por-dentro-section">
+      <div class="fique-por-dentro-title">💬 Fique por Dentro</div>
+      <div class="fique-por-dentro-grid">
+
+        <!-- Card 1: Como ganhar SC -->
+        <div class="fpd-card">
+          <div class="fpd-card-icon">🪙</div>
+          <p class="fpd-card-title">Como ganhar SC</p>
+          <p class="fpd-card-text">Conheça todas as formas de acumular Sympla Coins e turbinar seus resgates.</p>
+          <a href="como-ganhar.html" class="fpd-card-link">Ver formas de ganhar →</a>
+        </div>
+
+        <!-- Card 2: Cultura Sympla -->
+        <div class="fpd-card">
+          <div class="fpd-card-icon">💡</div>
+          <p class="fpd-card-title">Cultura Sympla</p>
+          <p class="fpd-card-text">Viva nossos valores a cada entrega!</p>
+          <div class="fpd-card-valores">
+            <span class="fpd-valor-tag">Responsabilizamos</span>
+            <span class="fpd-valor-tag">Inovamos</span>
+            <span class="fpd-valor-tag">Satisfazemos</span>
+            <span class="fpd-valor-tag">Symplificamos</span>
+            <span class="fpd-valor-tag">Entregamos</span>
+          </div>
+          <a href="#" class="fpd-card-link">Conhecer a cultura →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Grid 2 colunas -->
+    <div class="dt-grid-2">
+
+      <!-- Coluna esquerda -->
+      <div>
+
+        <!-- Últimas movimentações -->
+        <div class="dt-card">
+          <div class="dt-card-title">
+            <span>Últimas movimentações</span>
+            <a href="extrato.html">Ver todas</a>
+          </div>
+
+          <div class="dt-extrato-item">
+            <div class="dt-extrato-icon entrada">🎯</div>
+            <div class="dt-extrato-info">
+              <div class="dt-extrato-desc">Campanha Indicação Premiada</div>
+              <div class="dt-extrato-date">Ontem · 14h30</div>
+            </div>
+            <div class="dt-extrato-amount entrada">+300 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+          </div>
+
+          <div class="dt-extrato-item">
+            <div class="dt-extrato-icon saida">🛒</div>
+            <div class="dt-extrato-info">
+              <div class="dt-extrato-desc">Resgate — Caneca Sympla</div>
+              <div class="dt-extrato-date">05/06/2025 · 10h12</div>
+            </div>
+            <div class="dt-extrato-amount saida">-150 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+          </div>
+
+          <div class="dt-extrato-item">
+            <div class="dt-extrato-icon entrada">🎯</div>
+            <div class="dt-extrato-info">
+              <div class="dt-extrato-desc">Campanha Q1 — Concluída</div>
+              <div class="dt-extrato-date">28/05/2025 · 09h00</div>
+            </div>
+            <div class="dt-extrato-amount entrada">+500 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+          </div>
+
+          <div class="dt-extrato-item">
+            <div class="dt-extrato-icon entrada">🏃</div>
+            <div class="dt-extrato-info">
+              <div class="dt-extrato-desc">Sympla em Movimento — Semana 22</div>
+              <div class="dt-extrato-date">25/05/2025 · 08h45</div>
+            </div>
+            <div class="dt-extrato-amount entrada">+100 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Coluna direita -->
+      <div>
+        <div class="dt-card">
+          <div class="dt-card-title">
+            <span>Resumo do período</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #e2eaf4;">
+              <span style="font-size:13px;color:#5a6a7a;">Ganhos no mês</span>
+              <span style="font-size:14px;font-weight:700;color:#16a34a;">+400 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #e2eaf4;">
+              <span style="font-size:13px;color:#5a6a7a;">Resgates no mês</span>
+              <span style="font-size:14px;font-weight:700;color:#dc2626;">-150 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;">
+              <span style="font-size:13px;color:#5a6a7a;">Saldo acumulado</span>
+              <span style="font-size:14px;font-weight:700;color:#0097ff;">1.250 <img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

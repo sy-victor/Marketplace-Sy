@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Campanhas</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+</style>
+</head>
+<body>
+
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html" class="active">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content">
+
+    <div class="dt-section-header mb-lg">
+      <h1 class="dt-section-title" style="font-size:22px;">🎯 Campanhas</h1>
+    </div>
+
+    <!-- Resumo -->
+    <div class="dt-card mb-lg">
+      <div style="display:flex; gap:32px; align-items:center;">
+        <div style="text-align:center;">
+          <div style="font-size:28px; font-weight:700; color:var(--color-primary);">3</div>
+          <div style="font-size:12px; color:var(--color-text-light);">Ativas</div>
+        </div>
+        <div style="width:1px; background:var(--color-border); height:40px;"></div>
+        <div style="text-align:center;">
+          <div style="font-size:28px; font-weight:700; color:var(--color-warning);">1</div>
+          <div style="font-size:12px; color:var(--color-text-light);">Pendentes</div>
+        </div>
+        <div style="width:1px; background:var(--color-border); height:40px;"></div>
+        <div style="text-align:center;">
+          <div style="font-size:28px; font-weight:700; color:var(--color-success);">5</div>
+          <div style="font-size:12px; color:var(--color-text-light);">Concluídas</div>
+        </div>
+        <div style="margin-left:auto;">
+          <div class="dt-search-bar" style="margin:0; width:280px;">
+            <span>🔍</span>
+            <input type="search" placeholder="Buscar campanha..." id="searchInput" oninput="filterCards()" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="dt-filter-chips" id="filterChips">
+      <button class="dt-chip active" data-filter="todos" onclick="setFilter(this,'todos')">Todas</button>
+      <button class="dt-chip" data-filter="ativa" onclick="setFilter(this,'ativa')">Ativas</button>
+      <button class="dt-chip" data-filter="pendente" onclick="setFilter(this,'pendente')">Pendentes</button>
+      <button class="dt-chip" data-filter="pausado" onclick="setFilter(this,'pausado')">Pausadas</button>
+      <button class="dt-chip" data-filter="entregue" onclick="setFilter(this,'entregue')">Concluídas</button>
+    </div>
+
+    <!-- Grid 3 colunas -->
+    <div class="dt-grid-3" id="campaignsList">
+
+      <a href="campanha-detalhe.html" class="dt-campaign-card" data-status="ativa" style="display:flex;flex-direction:column;">
+        <div class="dt-campaign-card-image" style="background:linear-gradient(135deg,#e6f4ff,#cce8ff);">📊</div>
+        <div class="dt-campaign-card-top">
+          <span class="dt-campaign-card-title">Meta de Vendas Q2</span>
+          <span class="dt-tag dt-tag-ativo">Ativa</span>
+        </div>
+        <div class="dt-campaign-card-meta">Vendas · Equipe Comercial</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span style="color:var(--color-text-light);">Progresso</span>
+          <span style="font-weight:700;color:var(--color-primary);">72%</span>
+        </div>
+        <div class="dt-progress-bar"><div class="dt-progress-fill" style="width:72%;"></div></div>
+        <div class="dt-campaign-card-footer">
+          <span class="dt-campaign-card-points">🪙 500 coins</span>
+          <span>12 dias</span>
+        </div>
+      </a>
+
+      <a href="campanha-detalhe.html" class="dt-campaign-card" data-status="pendente" style="display:flex;flex-direction:column;">
+        <div class="dt-campaign-card-image" style="background:linear-gradient(135deg,#fff7e6,#fde9b4);">📚</div>
+        <div class="dt-campaign-card-top">
+          <span class="dt-campaign-card-title">Treinamento Obrigatório</span>
+          <span class="dt-tag dt-tag-pendente">Pendente</span>
+        </div>
+        <div class="dt-campaign-card-meta">Capacitação · Todos</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span style="color:var(--color-text-light);">Progresso</span>
+          <span style="font-weight:700;color:var(--color-warning);">30%</span>
+        </div>
+        <div class="dt-progress-bar"><div class="dt-progress-fill warning" style="width:30%;"></div></div>
+        <div class="dt-campaign-card-footer">
+          <span class="dt-campaign-card-points">🪙 200 coins</span>
+          <span>5 dias</span>
+        </div>
+      </a>
+
+      <a href="campanha-detalhe.html" class="dt-campaign-card" data-status="ativa" style="display:flex;flex-direction:column;">
+        <div class="dt-campaign-card-image" style="background:linear-gradient(135deg,#e6ffe6,#b4f0b4);">🏃</div>
+        <div class="dt-campaign-card-top">
+          <span class="dt-campaign-card-title">Sympla em Movimento</span>
+          <span class="dt-tag dt-tag-ativo">Ativa</span>
+        </div>
+        <div class="dt-campaign-card-meta">Bem-estar · Todos</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span style="color:var(--color-text-light);">Progresso</span>
+          <span style="font-weight:700;color:var(--color-success);">55%</span>
+        </div>
+        <div class="dt-progress-bar"><div class="dt-progress-fill success" style="width:55%;"></div></div>
+        <div class="dt-campaign-card-footer">
+          <span class="dt-campaign-card-points">🪙 150 coins</span>
+          <span>20 dias</span>
+        </div>
+      </a>
+
+      <a href="campanha-detalhe.html" class="dt-campaign-card" data-status="ativa" style="display:flex;flex-direction:column;">
+        <div class="dt-campaign-card-image" style="background:linear-gradient(135deg,#f0e6ff,#d9c2ff);">⭐</div>
+        <div class="dt-campaign-card-top">
+          <span class="dt-campaign-card-title">Reconhecimento de Pares</span>
+          <span class="dt-tag dt-tag-ativo">Ativa</span>
+        </div>
+        <div class="dt-campaign-card-meta">Cultura · Todos</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span style="color:var(--color-text-light);">Progresso</span>
+          <span style="font-weight:700;color:var(--color-primary);">90%</span>
+        </div>
+        <div class="dt-progress-bar"><div class="dt-progress-fill" style="width:90%;"></div></div>
+        <div class="dt-campaign-card-footer">
+          <span class="dt-campaign-card-points">🪙 100 coins</span>
+          <span>30 dias</span>
+        </div>
+      </a>
+
+      <a href="campanha-detalhe.html" class="dt-campaign-card" data-status="entregue" style="display:flex;flex-direction:column;">
+        <div class="dt-campaign-card-image" style="background:linear-gradient(135deg,#e6fff0,#b4f0c8);">✅</div>
+        <div class="dt-campaign-card-top">
+          <span class="dt-campaign-card-title">Meta de Vendas Q1</span>
+          <span class="dt-tag dt-tag-concluido">Concluída</span>
+        </div>
+        <div class="dt-campaign-card-meta">Vendas · Equipe Comercial</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span style="color:var(--color-text-light);">Progresso</span>
+          <span style="font-weight:700;color:var(--color-success);">100%</span>
+        </div>
+        <div class="dt-progress-bar"><div class="dt-progress-fill success" style="width:100%;"></div></div>
+        <div class="dt-campaign-card-footer">
+          <span class="dt-campaign-card-points">🪙 500 coins ganhos</span>
+          <span>Concluída</span>
+        </div>
+      </a>
+
+      <a href="campanha-detalhe.html" class="dt-campaign-card" data-status="pausado" style="display:flex;flex-direction:column;">
+        <div class="dt-campaign-card-image" style="background:linear-gradient(135deg,#f5f7fa,#e5e7eb);">⏸️</div>
+        <div class="dt-campaign-card-top">
+          <span class="dt-campaign-card-title">NPS Interno</span>
+          <span class="dt-tag dt-tag-pausado">Pausada</span>
+        </div>
+        <div class="dt-campaign-card-meta">Engajamento · Todos</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span style="color:var(--color-text-light);">Progresso</span>
+          <span style="font-weight:700;color:var(--color-text-light);">45%</span>
+        </div>
+        <div class="dt-progress-bar"><div class="dt-progress-fill" style="width:45%;background:var(--color-text-light);"></div></div>
+        <div class="dt-campaign-card-footer">
+          <span class="dt-campaign-card-points" style="color:var(--color-text-light);">🪙 80 coins</span>
+          <span>Pausada</span>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+  let currentFilter = 'todos';
+
+  function setFilter(btn, filter) {
+    currentFilter = filter;
+    document.querySelectorAll('.dt-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCards();
+  }
+
+  function filterCards() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    document.querySelectorAll('#campaignsList .dt-campaign-card').forEach(card => {
+      const status = card.dataset.status;
+      const text = card.textContent.toLowerCase();
+      const matchFilter = currentFilter === 'todos' || status === currentFilter;
+      const matchSearch = !search || text.includes(search);
+      card.style.display = matchFilter && matchSearch ? 'flex' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

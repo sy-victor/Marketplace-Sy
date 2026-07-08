@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler Admin — Integrações</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <style>
+    .admin-sidebar{position:fixed;top:0;left:0;width:260px;height:100vh;background:#1a1a2e;display:flex;flex-direction:column;padding:24px 0;z-index:100;overflow-y:auto;}.admin-sidebar-logo{display:flex;align-items:center;gap:12px;padding:0 20px;margin-bottom:32px;}.admin-sidebar-logo-text{font-size:20px;font-weight:700;color:#fff;}.admin-sidebar-logo span{color:#0097ff;}.admin-section-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);padding:0 20px;margin:16px 0 4px;}.admin-nav{list-style:none;margin:0;padding:0;flex:1;}.admin-nav-item{margin:2px 8px;}.admin-nav-link{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:8px;color:rgba(255,255,255,.65);font-size:14px;font-weight:600;text-decoration:none;transition:.2s ease;}.admin-nav-link:hover{background:rgba(255,255,255,.08);color:#fff;}.admin-nav-link.active{background:#0097ff;color:#fff;}.admin-nav-link .ni{width:18px;height:18px;flex-shrink:0;}.admin-sidebar-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:auto;}.admin-sidebar-user{display:flex;align-items:center;gap:10px;}.admin-sidebar-avatar{width:36px;height:36px;border-radius:50%;background:#0097ff;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;flex-shrink:0;}.admin-sidebar-name{font-size:13px;font-weight:600;color:#fff;}.admin-sidebar-role{font-size:11px;color:rgba(255,255,255,.5);}.admin-main{margin-left:260px;padding:32px;min-height:100vh;background:#f5f7fa;}.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}.page-title{font-size:24px;font-weight:700;color:#1a1a2e;margin:0;}.page-subtitle{font-size:14px;color:#6b7280;margin:4px 0 0;}.tooltip-wrapper{position:relative;display:inline-flex;align-items:center;}.tooltip-icon{width:16px;height:16px;border-radius:50%;background:#e6f4ff;color:#0097ff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border:none;margin-left:4px;}.tooltip-box{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;font-size:12px;padding:8px 12px;border-radius:8px;white-space:normal;max-width:200px;z-index:300;opacity:0;pointer-events:none;transition:.2s ease;width:160px;}.tooltip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a1a2e;}.tooltip-wrapper:hover .tooltip-box,.tooltip-wrapper.active .tooltip-box{opacity:1;pointer-events:auto;}
+    .integrations-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px;}
+    .int-card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,255,.08);}
+    .int-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+    .int-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+    .int-name{font-size:16px;font-weight:700;color:#1a1a2e;margin:0 0 2px;}
+    .int-type{font-size:12px;color:#6b7280;}
+    .int-desc{font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:16px;}
+    .int-status{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+    .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+    .status-dot.green{background:#22c55e;}.status-dot.yellow{background:#f59e0b;}.status-dot.gray{background:#9ca3af;}
+    .status-label{font-size:13px;font-weight:600;}
+    .status-label.green{color:#16a34a;}.status-label.yellow{color:#b45309;}.status-label.gray{color:#6b7280;}
+    .int-meta{font-size:12px;color:#6b7280;margin-bottom:12px;}
+    .int-actions{display:flex;gap:8px;}
+    /* API Keys */
+    .api-section{background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,255,.08);margin-bottom:20px;}
+    .api-section-title{font-size:16px;font-weight:700;color:#1a1a2e;margin:0 0 16px;}
+    .api-key-row{display:flex;align-items:center;gap:12px;padding:12px;background:#f8fafc;border-radius:10px;margin-bottom:10px;}
+    .api-key-label{font-size:13px;font-weight:600;color:#1a1a2e;min-width:120px;}
+    .api-key-value{flex:1;font-family:monospace;font-size:13px;color:#6b7280;background:#e5e7eb;padding:6px 12px;border-radius:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .copy-btn{padding:6px 12px;border-radius:6px;border:1.5px solid #e5e7eb;font-size:12px;font-weight:600;cursor:pointer;background:#fff;color:#6b7280;white-space:nowrap;}
+    .copy-btn:hover{border-color:#0097ff;color:#0097ff;}
+    /* Webhook */
+    .webhook-row{border:1.5px solid #e5e7eb;border-radius:10px;padding:14px;margin-bottom:10px;}
+    .webhook-url{font-family:monospace;font-size:13px;color:#1a1a2e;margin-bottom:6px;}
+    .webhook-events{display:flex;gap:6px;flex-wrap:wrap;}
+    .event-tag{padding:2px 8px;border-radius:50px;background:#e6f4ff;color:#0097ff;font-size:11px;font-weight:600;}
+    .toggle-switch{position:relative;width:44px;height:24px;flex-shrink:0;}.toggle-switch input{opacity:0;width:0;height:0;}.toggle-slider{position:absolute;cursor:pointer;inset:0;background:#e5e7eb;border-radius:50px;transition:.3s;}.toggle-slider::before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}input:checked + .toggle-slider{background:#22c55e;}input:checked + .toggle-slider::before{transform:translateX(20px);}
+  
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+
+    /* ── Admin topbar-right (view-switch standalone, top-right) ── */
+    .admin-topbar-right { display: flex; justify-content: flex-end; margin-bottom: 16px; }
+
+  </style>
+</head>
+<body>
+<aside class="admin-sidebar">
+  <div class="admin-sidebar-logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#0097ff"/><text x="18" y="24" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="18" fill="white">S</text></svg><div class="admin-sidebar-logo-text">Sympler<span> Admin</span></div></div>
+  <div class="admin-section-label">Principal</div>
+  <ul class="admin-nav">
+    <li class="admin-nav-item"><a href="admin-participantes.html" class="admin-nav-link"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Participantes</a></li>
+    <li class="admin-nav-item"><a href="admin-pontos.html" class="admin-nav-link"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Pontos</a></li>
+    <li class="admin-nav-item"><a href="admin-banners.html" class="admin-nav-link"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Como ganhar Sympla Coins</a></li>
+    <li class="admin-nav-item"><a href="admin-marketplace.html" class="admin-nav-link"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg>Marketplace</a></li>
+    <li class="admin-nav-item"><a href="admin-resgates.html" class="admin-nav-link"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Resgates</a></li>
+  </ul>
+  <div class="admin-section-label">Análise</div>
+  <ul class="admin-nav">
+    <li class="admin-nav-item"><a href="admin-relatorios.html" class="admin-nav-link"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Relatórios</a></li>
+    <li class="admin-nav-item"><a href="admin-integracoes.html" class="admin-nav-link active"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Integrações</a></li>
+    <li class="admin-nav-item"><a href="admin-configuracoes.html" class="admin-nav-link"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Configurações</a></li>
+  </ul>
+  <div class="admin-sidebar-footer"><div class="admin-sidebar-user"><div class="admin-sidebar-avatar">MA</div><div><div class="admin-sidebar-name">Maria Alves</div><div class="admin-sidebar-role">Administradora</div></div></div></div><div style="margin-top:16px;"><a href="../colaborador/perfil.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:rgba(0,151,255,0.15);border:1.5px solid rgba(0,151,255,0.4);color:#0097ff;text-decoration:none;font-size:13px;font-weight:600;transition:background 0.2s;" onmouseover="this.style.background='rgba(0,151,255,0.25)'" onmouseout="this.style.background='rgba(0,151,255,0.15)'">👤 <span>Visão Colaborador</span></a></div>
+</aside>
+
+<main class="admin-main">
+  <div class="page-header">
+    <div><h1 class="page-title">Integrações</h1><p class="page-subtitle">Conecte o Sympler aos seus sistemas de RH, SSO e parceiros</p></div>
+    <button class="btn btn-primary btn-sm" onclick="alert('Adicionar nova integração')">+ Nova Integração</button>
+  </div>
+  <div class="admin-topbar-right">
+    <a href="../colaborador/dashboard.html" class="view-switch-btn view-switch-collab"><img src="../../assets/sympla-coin.svg" width="16" height="16"> Sympler</a>
+  </div>
+
+  <div class="integrations-grid">
+    <div class="int-card">
+      <div class="int-header"><div class="int-icon" style="background:#e8f5e9;">🏢</div><div><div class="int-name">TOTVS RH</div><div class="int-type">Sistema de RH</div></div></div>
+      <div class="int-desc">Sincroniza colaboradores, cargos, departamentos e hierarquias automaticamente.</div>
+      <div class="int-status"><div class="status-dot green"></div><span class="status-label green">Conectado</span></div>
+      <div class="int-meta">Última sync: há 4 min · 4.821 registros</div>
+      <div class="int-actions"><button class="btn btn-secondary btn-sm">Configurar</button><button class="btn btn-ghost btn-sm" onclick="alert('Sync manual iniciado')">⟳ Sync</button></div>
+    </div>
+
+    <div class="int-card">
+      <div class="int-header"><div class="int-icon" style="background:#fff3e0;">🔑</div><div><div class="int-name">Azure AD SSO</div><div class="int-type">Autenticação</div></div></div>
+      <div class="int-desc">Login único via Microsoft Azure Active Directory para todos os colaboradores.</div>
+      <div class="int-status"><div class="status-dot green"></div><span class="status-label green">Conectado</span></div>
+      <div class="int-meta">Tenant: empresa.onmicrosoft.com</div>
+      <div class="int-actions"><button class="btn btn-secondary btn-sm">Configurar</button><button class="btn btn-ghost btn-sm" onclick="alert('Testando conexão...')">Testar</button></div>
+    </div>
+
+    <div class="int-card">
+      <div class="int-header"><div class="int-icon" style="background:#e3f2fd;">💬</div><div><div class="int-name">Slack</div><div class="int-type">Comunicação</div></div></div>
+      <div class="int-desc">Notificações de Sympla Coins, campanhas e resgates diretamente no Slack.</div>
+      <div class="int-status"><div class="status-dot green"></div><span class="status-label green">Conectado</span></div>
+      <div class="int-meta">Workspace: empresa-corp.slack.com</div>
+      <div class="int-actions"><button class="btn btn-secondary btn-sm">Configurar</button><button class="btn btn-ghost btn-sm">Desconectar</button></div>
+    </div>
+
+    <div class="int-card">
+      <div class="int-header"><div class="int-icon" style="background:#fce4ec;">📧</div><div><div class="int-name">SendGrid</div><div class="int-type">E-mail transacional</div></div></div>
+      <div class="int-desc">Envio de e-mails de reconhecimento, resgate e campanhas para participantes.</div>
+      <div class="int-status"><div class="status-dot yellow"></div><span class="status-label yellow">Aviso: rate limit</span></div>
+      <div class="int-meta">Enviados este mês: 48.200 / 50.000</div>
+      <div class="int-actions"><button class="btn btn-secondary btn-sm">Configurar</button><button class="btn btn-ghost btn-sm" onclick="alert('Ver log de envios')">Logs</button></div>
+    </div>
+
+    <div class="int-card">
+      <div class="int-header"><div class="int-icon" style="background:#f3e5f5;">📊</div><div><div class="int-name">Power BI</div><div class="int-type">Analytics</div></div></div>
+      <div class="int-desc">Exporte dados do Sympler para dashboards personalizados no Power BI.</div>
+      <div class="int-status"><div class="status-dot gray"></div><span class="status-label gray">Não conectado</span></div>
+      <div class="int-meta">Conector disponível via REST API</div>
+      <div class="int-actions"><button class="btn btn-primary btn-sm" onclick="alert('Iniciar configuração Power BI')">Conectar</button></div>
+    </div>
+
+    <div class="int-card">
+      <div class="int-header"><div class="int-icon" style="background:#e8f5e9;">🏪</div><div><div class="int-name">Giftcard BR</div><div class="int-type">Parceiro de prêmios</div></div></div>
+      <div class="int-desc">Catálogo de vouchers e gift cards físicos e digitais para o marketplace.</div>
+      <div class="int-status"><div class="status-dot green"></div><span class="status-label green">Conectado</span></div>
+      <div class="int-meta">52 produtos importados automaticamente</div>
+      <div class="int-actions"><button class="btn btn-secondary btn-sm">Configurar</button><button class="btn btn-ghost btn-sm" onclick="alert('Sincronizando catálogo...')">⟳ Sync</button></div>
+    </div>
+  </div>
+
+  <!-- API Keys -->
+  <div class="api-section">
+    <div class="api-section-title">Chaves de API <span class="tooltip-wrapper"><button class="tooltip-icon">ⓘ</button><span class="tooltip-box">Use estas chaves para integrar sistemas externos via REST API. Não compartilhe sua chave secreta.</span></span></div>
+    <div class="api-key-row">
+      <div class="api-key-label">Chave Pública</div>
+      <div class="api-key-value">pub_demo_XXXX_replace_with_your_key</div>
+      <button class="copy-btn" onclick="copyToClipboard('pub_demo_XXXX_replace_with_your_key', this)">📋 Copiar</button>
+    </div>
+    <div class="api-key-row">
+      <div class="api-key-label">Chave Secreta</div>
+      <div class="api-key-value">sk_demo_••••••••••••••••••••••••••••••••</div>
+      <button class="copy-btn" onclick="alert('Chave revelada (mock)')">👁 Revelar</button>
+    </div>
+  </div>
+
+  <!-- Webhooks -->
+  <div class="api-section">
+    <div class="api-section-title" style="display:flex;justify-content:space-between;align-items:center;">Webhooks <button class="btn btn-secondary btn-sm" onclick="alert('Adicionar webhook')">+ Adicionar</button></div>
+    <div class="webhook-row">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div class="webhook-url">https://erp.empresa.com/webhooks/sympler</div>
+        <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+      </div>
+      <div class="webhook-events"><span class="event-tag">coins.creditadas</span><span class="event-tag">resgate.aprovado</span><span class="event-tag">campanha.encerrada</span></div>
+    </div>
+    <div class="webhook-row">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div class="webhook-url">https://bi.empresa.com/api/v1/events</div>
+        <label class="toggle-switch"><input type="checkbox" /><span class="toggle-slider"></span></label>
+      </div>
+      <div class="webhook-events"><span class="event-tag">participante.criado</span><span class="event-tag">participante.inativo</span></div>
+    </div>
+  </div>
+</main>
+
+<script>
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(() => { btn.textContent = '✓ Copiado!'; setTimeout(() => btn.textContent = '📋 Copiar', 2000); });
+}
+</script>
+  
+</body>
+</html>

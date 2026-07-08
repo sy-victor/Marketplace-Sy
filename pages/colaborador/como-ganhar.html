@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Como ganhar Sympla Coins</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+  <style>
+    /* ── View-switch button ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+
+    /* ── Page hero ── */
+    .page-hero {
+      background: linear-gradient(135deg, #0097ff, #0055aa);
+      border-radius: 20px;
+      padding: 40px 36px;
+      margin-bottom: 32px;
+      color: #fff;
+    }
+    .page-hero h1 {
+      font-size: 28px; font-weight: 800; margin: 0 0 8px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .page-hero p {
+      font-size: 15px; opacity: 0.88; margin: 0; line-height: 1.5;
+    }
+
+    /* ── Banner cards grid (read-only) ── */
+    .banner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .banner-grid { grid-template-columns: 1fr; }
+    }
+    .banner-card {
+      background: #fff;
+      border: 1.5px solid #e2eaf4;
+      border-radius: 16px;
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      transition: box-shadow 0.18s, border-color 0.18s, transform 0.18s;
+    }
+    .banner-card:hover {
+      box-shadow: 0 6px 24px rgba(0,151,255,0.12);
+      border-color: #0097ff;
+      transform: translateY(-2px);
+    }
+    .banner-card-icon {
+      font-size: 36px; line-height: 1;
+    }
+    .banner-card-title {
+      font-size: 16px; font-weight: 700; color: #1a0533; margin: 0;
+    }
+    .banner-card-desc {
+      font-size: 13px; color: #5a6a7a; line-height: 1.55; margin: 0;
+      flex: 1;
+    }
+    .badge-ativo {
+      display: inline-block;
+      background: #0097ff; color: #fff;
+      border-radius: 20px; padding: 2px 10px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .badge-em-breve {
+      display: inline-block;
+      background: #e2e8f0; color: #64748b;
+      border-radius: 20px; padding: 2px 10px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="como-ganhar.html" class="active">Como ganhar</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content">
+
+    <!-- Hero -->
+    <div class="page-hero">
+      <h1>
+        <img src="../../assets/sympla-coin.svg" alt="SC" style="width:32px;height:32px;" />
+        Como ganhar Sympla Coins
+      </h1>
+      <p>Veja todas as formas de acumular Sympla Coins publicadas pelo time de People</p>
+    </div>
+
+    <!-- 6 Banner cards (read-only, espelho do admin) -->
+    <div class="banner-grid">
+
+      <!-- Banner 1 -->
+      <div class="banner-card">
+        <div class="banner-card-icon">🎯</div>
+        <p class="banner-card-title">Campanhas do mês</p>
+        <p class="banner-card-desc">Participe das campanhas ativas e cumpra os objetivos para acumular Sympla Coins. Os valores variam por campanha.</p>
+        <span class="badge-ativo">Ativo</span>
+      </div>
+
+      <!-- Banner 2 -->
+      <div class="banner-card">
+        <div class="banner-card-icon">🤝</div>
+        <p class="banner-card-title">Reconhecimento entre Symplers</p>
+        <p class="banner-card-desc">Reconheça um colega pelo app e ambos ganham 50 SC. Valorize quem faz a diferença no seu dia a dia.</p>
+        <span class="badge-ativo">Ativo</span>
+      </div>
+
+      <!-- Banner 3 -->
+      <div class="banner-card">
+        <div class="banner-card-icon">🎂</div>
+        <p class="banner-card-title">Aniversympler</p>
+        <p class="banner-card-desc">No seu aniversário você ganha 200 SC automaticamente. Parabéns antecipados!</p>
+        <span class="badge-ativo">Ativo</span>
+      </div>
+
+      <!-- Banner 4 -->
+      <div class="banner-card">
+        <div class="banner-card-icon">🏃</div>
+        <p class="banner-card-title">Sympla em Movimento</p>
+        <p class="banner-card-desc">Registre atividades físicas automaticamente via integração com API. Em breve!</p>
+        <span class="badge-em-breve">Em breve</span>
+      </div>
+
+      <!-- Banner 5 -->
+      <div class="banner-card">
+        <div class="banner-card-icon">📚</div>
+        <p class="banner-card-title">Trilhas de aprendizagem</p>
+        <p class="banner-card-desc">Complete cursos e trilhas na Prosus Academy (Degreed). Integração em desenvolvimento.</p>
+        <span class="badge-em-breve">Em breve</span>
+      </div>
+
+      <!-- Banner 6 -->
+      <div class="banner-card">
+        <div class="banner-card-icon">🌟</div>
+        <p class="banner-card-title">Ações culturais</p>
+        <p class="banner-card-desc">Participe dos ritos Sympla: All Hands, Listrou, Festa da Firma e outros eventos culturais.</p>
+        <span class="badge-ativo">Ativo</span>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

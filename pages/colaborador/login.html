@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Entrar</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+  <style>
+    body {
+      background: var(--color-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl);
+    }
+
+    .login-wrap {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo img {
+      width: 160px;
+      filter: brightness(0) invert(1);
+    }
+
+    .login-tagline {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .login-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-modal);
+    }
+
+    .login-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+
+    .login-card p {
+      font-size: 13px;
+      color: var(--color-text-light);
+      margin: 0 0 24px;
+    }
+
+    .input-group { margin-bottom: 16px; }
+
+    .input-with-icon { position: relative; }
+
+    .input-with-icon .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    .input-with-icon .input-field { padding-left: 42px; }
+
+    .btn-google {
+      width: 100%;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-border);
+      background: white;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background var(--transition), border-color var(--transition);
+      margin-top: 8px;
+    }
+
+    .btn-google:hover {
+      background: var(--color-bg);
+      border-color: var(--color-primary);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      font-size: 12px;
+      color: var(--color-text-light);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 13px;
+      font-size: 15px;
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 24px;
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+    }
+
+    .error-msg {
+      background: rgba(239,68,68,0.1);
+      color: var(--color-danger);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .error-msg.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-logo">
+      <img src="../../assets/logo.svg" alt="Sympler" />
+      <p class="login-tagline">Sua plataforma de benefícios e reconhecimento</p>
+    </div>
+
+    <div class="login-card">
+      <h2>Bem-vindo ao Sympler 👋</h2>
+      <p>Acesse com seu e-mail corporativo para ver seus benefícios.</p>
+
+      <div class="error-msg" id="errorMsg">E-mail ou senha incorretos. Tente novamente.</div>
+
+      <button class="btn-google" onclick="window.location.href='boas-vindas.html'">
+        <span>🔵</span> Entrar com Google
+      </button>
+
+      <div class="divider">ou</div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <label class="input-label" for="email">E-mail corporativo</label>
+          <div class="input-with-icon">
+            <span class="input-icon">✉</span>
+            <input type="email" id="email" class="input-field" placeholder="nome@sympla.com.br" value="ana.lima@sympla.com.br" autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="senha">Senha</label>
+          <div class="input-with-icon">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="senha" class="input-field" placeholder="••••••••" value="••••••••" autocomplete="current-password" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-login">Entrar</button>
+      </form>
+
+      <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--color-text-light);">
+        Esqueceu a senha? <a href="#" style="color:var(--color-primary); font-weight:600;">Recuperar acesso</a>
+      </p>
+    </div>
+
+    <p class="login-footer">© 2025 Sympler · Todos os direitos reservados</p>
+  </div>
+
+  <script>
+    function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+      const errorMsg = document.getElementById('errorMsg');
+      if (!email || !senha) { errorMsg.classList.add('visible'); return; }
+      errorMsg.classList.remove('visible');
+      window.location.href = 'boas-vindas.html';
+    }
+  </script>
+</body>
+</html>

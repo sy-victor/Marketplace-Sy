@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Perfil</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+</style>
+</head>
+<body>
+
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="como-ganhar.html">Como ganhar</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html" class="active">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content">
+
+    <!-- Profile hero banner -->
+    <div class="dt-profile-hero mb-xl">
+      <div class="dt-profile-avatar">👩</div>
+      <div class="dt-profile-info">
+        <div class="dt-profile-name">Ana Lima</div>
+        <div class="dt-profile-role">Analista Comercial · Equipe Vendas SP</div>
+        <div class="dt-profile-stats">
+          <div class="dt-profile-stat">
+            <div class="dt-profile-stat-value" style="display:flex;align-items:center;gap:6px;justify-content:center;"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:22px;height:22px;" /><span>1.250</span></div>
+            <div class="dt-profile-stat-label">Sympla Coins</div>
+          </div>
+          <div class="dt-profile-stat">
+            <div class="dt-profile-stat-value">5</div>
+            <div class="dt-profile-stat-label">Resgates</div>
+          </div>
+          <div class="dt-profile-stat">
+            <div class="dt-profile-stat-value">3</div>
+            <div class="dt-profile-stat-label">Campanhas</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="dt-wallet-btn" onclick="alert('Editar perfil')">✏️ Editar perfil</button>
+      </div>
+    </div>
+
+    <!-- Layout 2 colunas -->
+    <div class="dt-grid-2" style="align-items:start;">
+
+      <!-- Coluna esquerda: stats detalhados -->
+      <div>
+        <div class="dt-card mb-lg">
+          <div class="dt-card-title">Desempenho</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div style="background:var(--color-bg); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:28px; font-weight:700; color:var(--color-primary);">2.800</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Coins recebidos</div>
+            </div>
+            <div style="background:var(--color-bg); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:28px; font-weight:700; color:var(--color-danger);">1.550</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Coins resgatados</div>
+            </div>
+            <div style="background:var(--color-bg); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:28px; font-weight:700; color:var(--color-success);">4</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Semanas em movimento</div>
+            </div>
+            <div style="background:var(--color-bg); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:28px; font-weight:700; color:var(--color-warning);">72%</div>
+              <div style="font-size:12px; color:var(--color-text-light);">Meta de vendas Q2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dt-card">
+          <div class="dt-card-title">Conquistas</div>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <div style="background:var(--color-primary-light); border-radius:var(--radius-md); padding:12px 16px; text-align:center; font-size:24px;" title="Meta batida">🎯</div>
+            <div style="background:#fff7e6; border-radius:var(--radius-md); padding:12px 16px; text-align:center; font-size:24px;" title="Sympla em Movimento">🏃</div>
+            <div style="background:#e6ffe6; border-radius:var(--radius-md); padding:12px 16px; text-align:center; font-size:24px;" title="Primeiro resgate">🛒</div>
+            <div style="background:#f0e6ff; border-radius:var(--radius-md); padding:12px 16px; text-align:center; font-size:24px;" title="Reconhecida por pares">⭐</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna direita: menu de opções -->
+      <div>
+        <div class="dt-card">
+          <!-- Minha conta -->
+          <div class="dt-menu-section-label">Minha conta</div>
+
+          <a href="#" class="dt-menu-item" onclick="alert('Editar perfil')">
+            <div class="dt-menu-item-icon">✏️</div>
+            <div class="dt-menu-item-text">
+              <div class="dt-menu-item-label">Editar perfil</div>
+              <div class="dt-menu-item-sub">Nome, foto e informações pessoais</div>
+            </div>
+            <span class="dt-menu-item-arrow">›</span>
+          </a>
+
+          <a href="#" class="dt-menu-item" onclick="alert('Alterar senha')">
+            <div class="dt-menu-item-icon">🔒</div>
+            <div class="dt-menu-item-text">
+              <div class="dt-menu-item-label">Alterar senha</div>
+              <div class="dt-menu-item-sub">Segurança da conta</div>
+            </div>
+            <span class="dt-menu-item-arrow">›</span>
+          </a>
+
+          <a href="notificacoes.html" class="dt-menu-item">
+            <div class="dt-menu-item-icon">🔔</div>
+            <div class="dt-menu-item-text">
+              <div class="dt-menu-item-label">Notificações</div>
+              <div class="dt-menu-item-sub">Gerencie seus alertas</div>
+            </div>
+            <span class="dt-menu-item-arrow">›</span>
+          </a>
+
+          <a href="extrato.html" class="dt-menu-item">
+            <div class="dt-menu-item-icon">📋</div>
+            <div class="dt-menu-item-text">
+              <div class="dt-menu-item-label">Extrato de Sympla Coins</div>
+              <div class="dt-menu-item-sub">Entradas e resgates</div>
+            </div>
+            <span class="dt-menu-item-arrow">›</span>
+          </a>
+
+          <a href="marketplace.html" class="dt-menu-item">
+            <div class="dt-menu-item-icon">🛒</div>
+            <div class="dt-menu-item-text">
+              <div class="dt-menu-item-label">Marketplace</div>
+              <div class="dt-menu-item-sub">Resgate seus coins</div>
+            </div>
+            <span class="dt-menu-item-arrow">›</span>
+          </a>
+
+          <!-- Suporte -->
+          <div class="dt-menu-section-label">Suporte</div>
+
+          <a href="#" class="dt-menu-item" onclick="alert('Central de ajuda')">
+            <div class="dt-menu-item-icon">❓</div>
+            <div class="dt-menu-item-text">
+              <div class="dt-menu-item-label">Central de ajuda</div>
+              <div class="dt-menu-item-sub">FAQ e tutoriais</div>
+            </div>
+            <span class="dt-menu-item-arrow">›</span>
+          </a>
+
+          <!-- Demonstração -->
+          <div class="dt-menu-section-label">Demonstração</div>
+
+          <a href="../admin/admin-participantes.html" class="dt-menu-item" style="border:1.5px solid var(--color-primary);">
+            <div class="dt-menu-item-icon" style="background:var(--color-primary-light);">⚙️</div>
+            <div class="dt-menu-item-text">
+              <div class="dt-menu-item-label" style="color:var(--color-primary);">Acessar Painel Admin</div>
+              <div class="dt-menu-item-sub">Visão administrador do Sympler</div>
+            </div>
+            <span class="dt-menu-item-arrow" style="color:var(--color-primary);">›</span>
+          </a>
+
+          <!-- Sair -->
+          <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--color-border);">
+            <button class="btn btn-secondary" style="width:100%; padding:12px;" onclick="window.location.href='login.html'">
+              Sair da conta
+            </button>
+            <div style="text-align:center; font-size:11px; color:var(--color-text-light); margin-top:8px;">Sympler v2.5.1 · Colaborador</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

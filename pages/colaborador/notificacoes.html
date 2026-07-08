@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Notificações</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+</style>
+</head>
+<body>
+
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content" style="max-width:800px;">
+
+    <div style="margin-bottom:20px;">
+      <a href="perfil.html" style="font-size:14px; color:var(--color-primary); text-decoration:none; font-weight:600;">← Voltar ao Perfil</a>
+    </div>
+
+    <div class="dt-section-header mb-lg">
+      <h1 class="dt-section-title" style="font-size:22px;">🔔 Notificações</h1>
+      <button class="btn btn-secondary" style="padding:8px 16px; font-size:13px;" onclick="markAllRead()">Marcar todas como lidas</button>
+    </div>
+
+    <!-- Filtros -->
+    <div class="dt-filter-chips mb-lg">
+      <button class="dt-chip active" onclick="filterNotif(this,'todas')">Todas</button>
+      <button class="dt-chip" onclick="filterNotif(this,'nao-lida')">Não lidas <span style="background:var(--color-primary);color:white;border-radius:99px;padding:1px 6px;font-size:10px;margin-left:4px;">3</span></button>
+      <button class="dt-chip" onclick="filterNotif(this,'coins')">Sympla Coins</button>
+    </div>
+
+    <div id="notifList">
+
+      <div class="dt-notif-item unread" data-type="coins">
+        <div class="dt-notif-icon" style="background:rgba(34,197,94,0.1);">🪙</div>
+        <div class="dt-notif-content">
+          <div class="dt-notif-title">Você recebeu 300 Sympla Coins!</div>
+          <div class="dt-notif-desc">Campanha "Indicação Premiada" concluída. Os coins foram creditados ao seu saldo.</div>
+          <div class="dt-notif-time">Ontem · 14h30</div>
+        </div>
+      </div>
+
+      <div class="dt-notif-item unread" data-type="coins">
+        <div class="dt-notif-icon" style="background:rgba(245,158,11,0.1);">⚠️</div>
+        <div class="dt-notif-content">
+          <div class="dt-notif-title">Sympla em Movimento — Meta semanal</div>
+          <div class="dt-notif-desc">Faltam 2 atividades para completar sua meta semanal. Você já tem 3 de 5!</div>
+          <div class="dt-notif-time">Ontem · 09h00</div>
+        </div>
+      </div>
+
+      <div class="dt-notif-item unread" data-type="coins">
+        <div class="dt-notif-icon" style="background:rgba(34,197,94,0.1);">🪙</div>
+        <div class="dt-notif-content">
+          <div class="dt-notif-title">Sympla em Movimento — Semana 22</div>
+          <div class="dt-notif-desc">Você completou 3 atividades esta semana! +100 Sympla Coins creditados.</div>
+          <div class="dt-notif-time">25/05/2025 · 08h45</div>
+        </div>
+      </div>
+
+      <div class="dt-notif-item" data-type="coins">
+        <div class="dt-notif-icon" style="background:rgba(245,158,11,0.1);">⭐</div>
+        <div class="dt-notif-content">
+          <div class="dt-notif-title">Pedro Silva te reconheceu!</div>
+          <div class="dt-notif-desc">"Ana, obrigado pela parceria no fechamento do Q1!" — +150 Sympla Coins</div>
+          <div class="dt-notif-time">15/05/2025 · 16h20</div>
+        </div>
+      </div>
+
+      <div class="dt-notif-item" data-type="coins">
+        <div class="dt-notif-icon" style="background:rgba(34,197,94,0.1);">🪙</div>
+        <div class="dt-notif-content">
+          <div class="dt-notif-title">Aniversympler — Parabéns!</div>
+          <div class="dt-notif-desc">Você ganhou 200 Sympla Coins pelo seu aniversário. Aproveite!</div>
+          <div class="dt-notif-time">10/05/2025 · 08h00</div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+  function filterNotif(btn, type) {
+    document.querySelectorAll('.dt-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#notifList .dt-notif-item').forEach(item => {
+      if (type === 'todas') {
+        item.style.display = 'flex';
+      } else if (type === 'nao-lida') {
+        item.style.display = item.classList.contains('unread') ? 'flex' : 'none';
+      } else {
+        item.style.display = item.dataset.type === type ? 'flex' : 'none';
+      }
+    });
+  }
+
+  function markAllRead() {
+    document.querySelectorAll('#notifList .dt-notif-item.unread').forEach(item => item.classList.remove('unread'));
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* ============================================================
+   Sympler Design System — Variables
+   Design tokens: cores, espaçamentos, tipografia, sombras
+   ============================================================ */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/opensans-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/opensans-semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/opensans-bold.woff2') format('woff2');
+}
+
+:root {
+  /* ── Cores principais ── */
+  --color-primary:       #0097ff;
+  --color-primary-dark:  #007acc;
+  --color-primary-light: #e6f4ff;
+  --color-white:         #ffffff;
+
+  /* ── Cores de fundo e texto ── */
+  --color-bg:         #f5f7fa;
+  --color-text:       #1a1a2e;
+  --color-text-light: #6b7280;
+
+  /* ── Cores de status ── */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger:  #ef4444;
+  --color-info:    #0097ff;
+
+  /* ── Bordas ── */
+  --color-border: #e5e7eb;
+
+  /* ── Raios de borda ── */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* ── Sombras ── */
+  --shadow-card: 0 2px 12px rgba(0, 0, 255, 0.08);
+  --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.18);
+
+  /* ── Tipografia ── */
+  --font: 'Open Sans', system-ui, sans-serif;
+
+  /* ── Espaçamentos ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* ── Sidebar ── */
+  --sidebar-width: 260px;
+  --sidebar-bg:    #1a1a2e;
+
+  /* ── Bottom nav ── */
+  --bottom-nav-height: 64px;
+
+  /* ── Transições ── */
+  --transition: 0.2s ease;
+}

@@ -1,0 +1,1072 @@
+/* ============================================================
+   Sympler — Desktop Layout CSS (Bloco 1 — Visão Colaborador)
+   Substitui mobile.css para telas desktop/web full-width
+   ============================================================ */
+
+/* ── Reset e base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+/* ── Topbar ── */
+.dt-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--color-white);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  gap: 0;
+}
+
+.dt-topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.dt-topbar-brand img {
+  height: 30px;
+  width: auto;
+}
+
+.dt-topbar-brand-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.3px;
+}
+
+.dt-topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+}
+
+.dt-topbar-nav a {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.dt-topbar-nav a:hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.dt-topbar-nav a.active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.dt-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.dt-topbar-coins {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary-light);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.dt-topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.dt-topbar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+  border: 2px solid var(--color-primary-light);
+}
+
+.dt-topbar-username {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ── Layout principal ── */
+.dt-layout {
+  padding-top: 64px;
+  min-height: 100vh;
+}
+
+.dt-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* ── Wallet banner (dashboard) ── */
+.dt-wallet-banner {
+  background: linear-gradient(135deg, #0097ff 0%, #007acc 100%);
+  border-radius: var(--radius-lg);
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 28px;
+  color: white;
+}
+
+.dt-wallet-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: 3px solid rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.dt-wallet-info {
+  flex: 1;
+}
+
+.dt-wallet-greeting {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 2px;
+}
+
+.dt-wallet-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dt-wallet-role {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.dt-wallet-balance {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.dt-wallet-balance-label {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.dt-wallet-balance-value {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dt-wallet-balance-sub {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+.dt-wallet-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.dt-wallet-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+
+.dt-wallet-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+.dt-wallet-btn.primary {
+  background: white;
+  color: var(--color-primary);
+  border-color: white;
+}
+
+.dt-wallet-btn.primary:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+/* ── Grids ── */
+.dt-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.dt-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.dt-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Cards base ── */
+.dt-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+}
+
+.dt-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dt-card-title a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* ── Ações rápidas (dashboard) ── */
+.dt-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.dt-quick-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background var(--transition), transform var(--transition);
+  border: 1.5px solid transparent;
+}
+
+.dt-quick-action:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.dt-quick-action-icon {
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* ── Cards de campanha ── */
+.dt-campaign-card {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+  text-decoration: none;
+  color: var(--color-text);
+  display: block;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1.5px solid transparent;
+}
+
+.dt-campaign-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,151,255,0.12);
+  border-color: var(--color-primary-light);
+}
+
+.dt-campaign-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dt-campaign-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.dt-campaign-card-meta {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin-bottom: 14px;
+}
+
+.dt-campaign-card-image {
+  height: 120px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 14px;
+}
+
+.dt-campaign-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 12px;
+  color: var(--color-text-light);
+}
+
+.dt-campaign-card-points {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ── Progress bar ── */
+.dt-progress-bar {
+  height: 6px;
+  background: var(--color-bg);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.dt-progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+.dt-progress-fill.warning { background: var(--color-warning); }
+.dt-progress-fill.success { background: var(--color-success); }
+
+/* ── Movimentações (extrato list) ── */
+.dt-extrato-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dt-extrato-item:last-child { border-bottom: none; }
+
+.dt-extrato-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.dt-extrato-icon.entrada { background: rgba(34,197,94,0.1); }
+.dt-extrato-icon.saida   { background: rgba(239,68,68,0.1); }
+
+.dt-extrato-info { flex: 1; }
+
+.dt-extrato-desc {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.dt-extrato-date {
+  font-size: 12px;
+  color: var(--color-text-light);
+}
+
+.dt-extrato-amount {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dt-extrato-amount.entrada { color: var(--color-success); }
+.dt-extrato-amount.saida   { color: var(--color-danger); }
+
+/* ── Tabela extrato ── */
+.dt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.dt-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.dt-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.dt-table tr:last-child td { border-bottom: none; }
+
+.dt-table tr:hover td { background: var(--color-bg); }
+
+/* ── Marketplace cards ── */
+.dt-mkt-card {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1.5px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.dt-mkt-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,151,255,0.14);
+  border-color: var(--color-primary-light);
+}
+
+.dt-mkt-card-thumb {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+}
+
+.dt-mkt-card-body {
+  padding: 14px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dt-mkt-card-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.dt-mkt-card-brand {
+  font-size: 11px;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+.dt-mkt-card-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.dt-mkt-card-price span {
+  font-size: 11px;
+  color: var(--color-text-light);
+  font-weight: 400;
+}
+
+.dt-mkt-card-btn {
+  display: block;
+  text-align: center;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.dt-mkt-card-btn:hover { background: var(--color-primary-dark); }
+
+.dt-mkt-card-btn.esgotado {
+  background: var(--color-border);
+  color: var(--color-text-light);
+  cursor: not-allowed;
+}
+
+.dt-mkt-badge-esgotado {
+  display: inline-block;
+  background: rgba(239,68,68,0.1);
+  color: var(--color-danger);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Filtros horizontais ── */
+.dt-filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.dt-chip {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-border);
+  background: white;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.dt-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.dt-chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+/* ── Search bar ── */
+.dt-search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  padding: 10px 16px;
+  gap: 10px;
+  margin-bottom: 20px;
+  transition: border-color var(--transition);
+}
+
+.dt-search-bar:focus-within {
+  border-color: var(--color-primary);
+}
+
+.dt-search-bar input {
+  border: none;
+  outline: none;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--color-text);
+  flex: 1;
+  background: transparent;
+}
+
+/* ── Tags / pills ── */
+.dt-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.dt-tag-ativo    { background: rgba(34,197,94,0.12);  color: #16a34a; }
+.dt-tag-pendente { background: rgba(245,158,11,0.12); color: #d97706; }
+.dt-tag-pausado  { background: rgba(107,114,128,0.12); color: #6b7280; }
+.dt-tag-concluido { background: rgba(0,151,255,0.12); color: var(--color-primary); }
+
+/* ── Perfil layout ── */
+.dt-profile-hero {
+  background: linear-gradient(135deg, #0097ff, #007acc);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.dt-profile-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: 3px solid rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.dt-profile-info { flex: 1; }
+
+.dt-profile-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dt-profile-role {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+
+.dt-profile-stats {
+  display: flex;
+  gap: 28px;
+}
+
+.dt-profile-stat {
+  text-align: center;
+}
+
+.dt-profile-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dt-profile-stat-label {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* ── Menu itens de perfil ── */
+.dt-menu-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  padding: 0 4px;
+}
+
+.dt-menu-section-label:first-child { margin-top: 0; }
+
+.dt-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background var(--transition);
+  border: 1.5px solid transparent;
+  margin-bottom: 4px;
+}
+
+.dt-menu-item:hover {
+  background: var(--color-bg);
+}
+
+.dt-menu-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.dt-menu-item-text { flex: 1; }
+
+.dt-menu-item-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.dt-menu-item-sub {
+  font-size: 12px;
+  color: var(--color-text-light);
+}
+
+.dt-menu-item-arrow {
+  font-size: 20px;
+  color: var(--color-text-light);
+}
+
+/* ── Modal ── */
+.dt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+.dt-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dt-modal {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: var(--shadow-modal);
+  transform: scale(0.95);
+  transition: transform 0.2s;
+}
+
+.dt-modal-overlay.active .dt-modal {
+  transform: scale(1);
+}
+
+.dt-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dt-modal-sub {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-bottom: 20px;
+}
+
+.dt-modal-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.dt-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.dt-modal-actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity var(--transition);
+}
+
+.dt-modal-actions button:hover { opacity: 0.85; }
+
+/* ── Seção de saldo (extrato) ── */
+.dt-balance-card {
+  background: linear-gradient(135deg, #0097ff, #007acc);
+  border-radius: var(--radius-lg);
+  padding: 28px 36px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.dt-balance-label {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.dt-balance-value {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dt-balance-sub {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+.dt-balance-stats {
+  display: flex;
+  gap: 32px;
+}
+
+.dt-balance-stat {
+  text-align: center;
+}
+
+.dt-balance-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.dt-balance-stat-label {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* ── Topbar simples (login / boas-vindas) ── */
+.dt-topbar-simple {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--color-white);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+
+/* ── Notificações list ── */
+.dt-notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 12px;
+  border-left: 3px solid transparent;
+}
+
+.dt-notif-item.unread {
+  border-left-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.dt-notif-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.dt-notif-content { flex: 1; }
+
+.dt-notif-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.dt-notif-desc {
+  font-size: 13px;
+  color: var(--color-text-light);
+  margin-bottom: 4px;
+}
+
+.dt-notif-time {
+  font-size: 11px;
+  color: var(--color-text-light);
+}
+
+/* ── Reconhecimento ── */
+.dt-reconh-card {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.dt-reconh-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Movimento page ── */
+.dt-movimento-hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+
+.dt-movimento-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.dt-movimento-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dt-movimento-sub {
+  font-size: 15px;
+  color: var(--color-text-light);
+  max-width: 480px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+/* ── Demo switcher ── */
+.demo-switcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--color-text);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: opacity var(--transition);
+}
+
+.demo-switcher:hover { opacity: 0.85; }
+
+/* ── Utilitários ── */
+.dt-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dt-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.dt-section-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.mt-0  { margin-top: 0; }
+.mb-0  { margin-bottom: 0; }
+.mt-sm { margin-top: 8px; }
+.mb-sm { margin-bottom: 8px; }
+.mt-md { margin-top: 16px; }
+.mb-md { margin-bottom: 16px; }
+.mt-lg { margin-top: 24px; }
+.mb-lg { margin-bottom: 24px; }
+.mt-xl { margin-top: 32px; }
+.mb-xl { margin-bottom: 32px; }
+
+.text-primary { color: var(--color-primary); }
+.text-light   { color: var(--color-text-light); }
+.text-success { color: var(--color-success); }
+.text-danger  { color: var(--color-danger); }
+.text-warning { color: var(--color-warning); }
+.text-center  { text-align: center; }
+.fw-700       { font-weight: 700; }
+.fw-600       { font-weight: 600; }

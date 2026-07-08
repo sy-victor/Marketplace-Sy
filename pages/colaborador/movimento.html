@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sympler — Sympla em Movimento</title>
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/desktop-sympler.css" />
+<style>
+    /* ── View-switch button (Bloco 4) ── */
+    .view-switch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .view-switch-collab { background: #0097ff; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+    .view-switch-collab:hover { background: #007acc; }
+    .view-switch-admin { background: #fff; color: #0097ff; border: 1.5px solid #0097ff; }
+    .view-switch-admin:hover { background: #e6f4ff; }
+
+    /* ── Card informativo Em breve ── */
+    .movimento-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e5eaf0;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 151, 255, 0.08);
+      padding: 40px 36px 32px;
+      text-align: center;
+    }
+    .movimento-card-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      display: block;
+      line-height: 1;
+    }
+    .movimento-card-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+    }
+    .movimento-badge {
+      display: inline-block;
+      background: #0097ff;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .movimento-card-body {
+      text-align: left;
+    }
+    .movimento-card-body p {
+      font-size: 14px;
+      color: #4a5568;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .movimento-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 24px;
+    }
+    .movimento-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #2d3748;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .movimento-list li:last-child {
+      border-bottom: none;
+    }
+    .movimento-list-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0097ff;
+      flex-shrink: 0;
+    }
+    .movimento-card-footer {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e5eaf0;
+      font-size: 13px;
+      color: #718096;
+      text-align: center;
+      line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+
+<header class="dt-topbar">
+  <a href="dashboard.html" class="dt-topbar-brand">
+    <img src="../../assets/logo.svg" alt="Sympler" />
+    <span class="dt-topbar-brand-label">Sympler</span>
+  </a>
+  <nav class="dt-topbar-nav">
+    <a href="dashboard.html" class="active">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="extrato.html">Extrato</a>
+    <a href="perfil.html">Perfil</a>
+  </nav>
+  <div class="dt-topbar-right">
+    <div class="dt-topbar-coins"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> 1.250</div>
+    <div class="dt-topbar-user">
+      <div class="dt-topbar-avatar">👩</div>
+      <span class="dt-topbar-username">Ana Lima</span>
+    </div>
+    <a href="../admin/admin-participantes.html" class="view-switch-btn view-switch-admin">⚙️ Sympler Admin</a>
+  </div>
+</header>
+
+<div class="dt-layout">
+  <main class="dt-content">
+
+    <div style="margin-bottom:28px;">
+      <a href="dashboard.html" style="font-size:14px; color:#0097ff; text-decoration:none; font-weight:600;">← Voltar ao Dashboard</a>
+    </div>
+
+    <!-- Card informativo estático -->
+    <div class="movimento-card">
+      <span class="movimento-card-icon">🏃</span>
+      <div class="movimento-card-title">Sympla em Movimento</div>
+      <span class="movimento-badge">Em breve</span>
+
+      <div class="movimento-card-body">
+        <p>
+          O Sympla em Movimento vai recompensar você com Sympla Coins por atividades físicas registradas automaticamente.
+        </p>
+        <p>
+          A funcionalidade será ativada via integração com API. Nenhum registro manual será necessário — tudo acontece automaticamente.
+        </p>
+
+        <div style="font-size:13px; font-weight:700; color:#1a1a2e; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.4px;">
+          Atividades que serão reconhecidas
+        </div>
+        <ul class="movimento-list">
+          <li><span class="movimento-list-dot"></span>Corrida e caminhada</li>
+          <li><span class="movimento-list-dot"></span>Ciclismo</li>
+          <li><span class="movimento-list-dot"></span>Academia e musculação</li>
+          <li><span class="movimento-list-dot"></span>Natação</li>
+          <li><span class="movimento-list-dot"></span>Esportes coletivos</li>
+          <li><span class="movimento-list-dot"></span>Outras atividades monitoradas por app</li>
+        </ul>
+      </div>
+
+      <div class="movimento-card-footer">
+        📢 Fique de olho nas novidades pelo <strong>All Hands mensal</strong> e nos comunicados no <strong>Slack</strong>.
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
