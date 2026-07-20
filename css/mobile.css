@@ -24,7 +24,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-clay-sm);
 }
 
 .mobile-header-logo img {
@@ -90,7 +90,7 @@
   align-items: center;
   justify-content: space-around;
   z-index: 200;
-  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 -8px 24px rgba(163, 177, 198, 0.35);
 }
 
 .bottom-nav-link {
@@ -246,7 +246,7 @@
 }
 
 .quick-action:hover {
-  box-shadow: 0 4px 16px rgba(0,151,255,0.15);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-2px);
   text-decoration: none;
 }
@@ -277,7 +277,7 @@
 }
 
 .campaign-card:hover {
-  box-shadow: 0 4px 20px rgba(0,151,255,0.15);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-2px);
   text-decoration: none;
 }
@@ -341,7 +341,7 @@
 }
 
 .mkt-card:hover {
-  box-shadow: 0 4px 20px rgba(0,151,255,0.15);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-2px);
 }
 
@@ -498,7 +498,7 @@
 
 .search-bar:focus-within {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0,151,255,0.1);
+  box-shadow: var(--shadow-clay-inset), 0 0 0 3px rgba(0,151,255,0.18);
 }
 
 .search-bar-icon {
@@ -643,7 +643,7 @@
 }
 
 .profile-menu-item:hover {
-  box-shadow: 0 4px 16px rgba(0,151,255,0.12);
+  box-shadow: var(--shadow-card-hover);
   text-decoration: none;
   color: var(--color-text);
 }

@@ -208,7 +208,7 @@ p {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-clay-sm);
   white-space: nowrap;
 }
 .demo-switcher-collab {
@@ -225,7 +225,7 @@ p {
 }
 .demo-switcher:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* Demo view switcher button */
@@ -242,11 +242,11 @@ p {
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  box-shadow: var(--shadow-clay-sm);
   transition: transform 0.15s, box-shadow 0.15s;
   white-space: nowrap;
   cursor: pointer;
 }
-.demo-switcher:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.22); }
+.demo-switcher:hover { transform: translateY(-1px); box-shadow: var(--shadow-card-hover); }
 .demo-switcher-collab { background:#0097ff; color:#fff; border:1.5px solid rgba(255,255,255,0.45); }
 .demo-switcher-admin  { background:#fff; color:#0097ff; border:1.5px solid #0097ff; }

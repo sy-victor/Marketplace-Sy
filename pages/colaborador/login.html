@@ -100,6 +100,18 @@
       border-color: var(--color-primary);
     }
 
+    .btn-google:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .google-hint {
+      text-align: center;
+      font-size: 11px;
+      color: var(--color-text-light);
+      margin-top: 6px;
+    }
+
     .divider {
       display: flex;
       align-items: center;
@@ -152,13 +164,15 @@
 
     <div class="login-card">
       <h2>Bem-vindo ao Sympler 👋</h2>
-      <p>Acesse com seu e-mail corporativo para ver seus benefícios.</p>
+      <p>Acesse com seu e-mail <strong>@sympla.com.br</strong> para ver seus benefícios.</p>
 
       <div class="error-msg" id="errorMsg">E-mail ou senha incorretos. Tente novamente.</div>
+      <div class="error-msg" id="domainErrorMsg">Use seu e-mail corporativo <strong>@sympla.com.br</strong> para entrar. Este endereço não pertence ao domínio autorizado.</div>
 
-      <button class="btn-google" onclick="window.location.href='boas-vindas.html'">
+      <button class="btn-google" id="googleLoginBtn" onclick="handleGoogleLogin()">
         <span>🔵</span> Entrar com Google
       </button>
+      <p class="google-hint">Login restrito a contas Google do domínio <strong>sympla.com.br</strong></p>
 
       <div class="divider">ou</div>
 
@@ -167,8 +181,9 @@
           <label class="input-label" for="email">E-mail corporativo</label>
           <div class="input-with-icon">
             <span class="input-icon">✉</span>
-            <input type="email" id="email" class="input-field" placeholder="nome@sympla.com.br" value="ana.lima@sympla.com.br" autocomplete="email" />
+            <input type="email" id="email" class="input-field" placeholder="nome@sympla.com.br" value="ana.lima@sympla.com.br" autocomplete="email" pattern="[a-zA-Z0-9._%+-]+@sympla\.com\.br$" />
           </div>
+          <span class="input-hint">Apenas e-mails do domínio @sympla.com.br são aceitos.</span>
         </div>
 
         <div class="input-group">
@@ -191,13 +206,113 @@
   </div>
 
   <script>
+    /* ============================================================
+       Sympler — Autenticação (protótipo front-end)
+       Restrição de domínio: apenas @sympla.com.br pode entrar.
+       ============================================================ */
+
+    const ALLOWED_DOMAIN = 'sympla.com.br';
+
+    function isAllowedEmail(email) {
+      if (!email || typeof email !== 'string') return false;
+      const parts = email.trim().toLowerCase().split('@');
+      return parts.length === 2 && parts[1] === ALLOWED_DOMAIN;
+    }
+
     function handleLogin(e) {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const senha = document.getElementById('senha').value;
       const errorMsg = document.getElementById('errorMsg');
-      if (!email || !senha) { errorMsg.classList.add('visible'); return; }
+      const domainErrorMsg = document.getElementById('domainErrorMsg');
+
       errorMsg.classList.remove('visible');
+      domainErrorMsg.classList.remove('visible');
+
+      if (!email || !senha) {
+        errorMsg.classList.add('visible');
+        return;
+      }
+
+      // Barreira de domínio — bloqueia qualquer e-mail fora de @sympla.com.br
+      if (!isAllowedEmail(email)) {
+        domainErrorMsg.classList.add('visible');
+        return;
+      }
+
+      window.location.href = 'boas-vindas.html';
+    }
+
+    /* ============================================================
+       Login com Google — estrutura preparada para integração real
+       ============================================================
+       Ainda não funcional (protótipo estático). O código abaixo já
+       está organizado para ser plugado a um provedor de autenticação
+       real (ex.: Firebase Authentication com GoogleAuthProvider) sem
+       precisar reescrever a tela.
+
+       Passos para ativar futuramente (ex. no Firebase):
+       1. Incluir o SDK do Firebase (firebase-app, firebase-auth).
+       2. Configurar o app com as credenciais do projeto Sympla.
+       3. Criar um GoogleAuthProvider e usar setCustomParameters
+          para restringir a busca ao domínio ({ hd: 'sympla.com.br' }).
+          Isso já filtra a tela de contas do Google, mas o e-mail
+          retornado AINDA precisa ser revalidado no passo 4, pois o
+          parâmetro "hd" pode ser manipulado no client.
+       4. No callback de sucesso, validar novamente o domínio do
+          e-mail retornado (result.user.email) com isAllowedEmail().
+          Se não bater, chamar signOut() imediatamente e mostrar
+          domainErrorMsg — nunca confiar apenas na Google Identity
+          Services para essa checagem.
+       5. Idealmente, essa validação de domínio deve ser reforçada
+          também no backend (ex. Cloud Functions) antes de emitir
+          qualquer sessão/token para o front-end.
+
+       Exemplo (comentado) de como ficaria com Firebase:
+
+       import { initializeApp } from "firebase/app";
+       import {
+         getAuth, GoogleAuthProvider, signInWithPopup, signOut
+       } from "firebase/auth";
+
+       const firebaseConfig = { ...configDoProjetoSympla };
+       const app = initializeApp(firebaseConfig);
+       const auth = getAuth(app);
+       const provider = new GoogleAuthProvider();
+       provider.setCustomParameters({ hd: ALLOWED_DOMAIN });
+
+       async function handleGoogleLogin() {
+         try {
+           const result = await signInWithPopup(auth, provider);
+           const email = result.user.email;
+           if (!isAllowedEmail(email)) {
+             await signOut(auth);
+             document.getElementById('domainErrorMsg').classList.add('visible');
+             return;
+           }
+           window.location.href = 'boas-vindas.html';
+         } catch (err) {
+           console.error('Falha no login com Google:', err);
+         }
+       }
+       ============================================================ */
+
+    function handleGoogleLogin() {
+      // Placeholder do fluxo real acima — apenas simula a checagem de
+      // domínio usando o e-mail já preenchido no formulário, para dar
+      // visibilidade do comportamento esperado no protótipo.
+      const errorMsg = document.getElementById('errorMsg');
+      const domainErrorMsg = document.getElementById('domainErrorMsg');
+      errorMsg.classList.remove('visible');
+      domainErrorMsg.classList.remove('visible');
+
+      const email = document.getElementById('email').value;
+
+      if (email && !isAllowedEmail(email)) {
+        domainErrorMsg.classList.add('visible');
+        return;
+      }
+
       window.location.href = 'boas-vindas.html';
     }
   </script>

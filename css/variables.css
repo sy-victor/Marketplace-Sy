@@ -48,14 +48,46 @@
   /* ── Bordas ── */
   --color-border: #e5e7eb;
 
-  /* ── Raios de borda ── */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  /* ── Raios de borda (Claymorphism: formas bem arredondadas) ── */
+  --radius-sm: 14px;
+  --radius-md: 22px;
+  --radius-lg: 30px;
+  --radius-xl: 36px;
 
-  /* ── Sombras ── */
-  --shadow-card: 0 2px 12px rgba(0, 0, 255, 0.08);
-  --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.18);
+  /* ── Sombras "Clay" ──
+     Combinação de sombra externa suave e difusa (dá o efeito "inflado")
+     + realce interno claro no topo/esquerda + sombra interna sutil embaixo/direita
+     (dá o efeito de argila moldada). Tons derivados do próprio --color-bg,
+     então a paleta de cores do site não muda. ── */
+  --clay-shadow-color: rgba(163, 177, 198, 0.55);
+  --clay-highlight-color: rgba(255, 255, 255, 0.85);
+
+  --shadow-card:
+    8px 8px 20px rgba(163, 177, 198, 0.35),
+    -6px -6px 16px rgba(255, 255, 255, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  --shadow-card-hover:
+    10px 10px 24px rgba(163, 177, 198, 0.4),
+    -8px -8px 18px rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  --shadow-clay-sm:
+    4px 4px 10px rgba(163, 177, 198, 0.4),
+    -3px -3px 8px rgba(255, 255, 255, 0.7);
+
+  --shadow-clay-inset:
+    inset 4px 4px 8px rgba(163, 177, 198, 0.35),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+
+  --shadow-clay-primary:
+    6px 6px 16px rgba(0, 122, 204, 0.35),
+    -4px -4px 12px rgba(120, 200, 255, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+
+  --shadow-modal:
+    16px 16px 40px rgba(120, 130, 160, 0.35),
+    -10px -10px 30px rgba(255, 255, 255, 0.6);
 
   /* ── Tipografia ── */
   --font: 'Open Sans', system-ui, sans-serif;

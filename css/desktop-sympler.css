@@ -22,7 +22,7 @@ body {
   right: 0;
   height: 64px;
   background: var(--color-white);
-  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-clay-sm);
   z-index: 200;
   display: flex;
   align-items: center;
@@ -322,7 +322,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-clay-sm);
 }
 
 /* ── Cards de campanha ── */
@@ -340,7 +340,7 @@ body {
 
 .dt-campaign-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0,151,255,0.12);
+  box-shadow: var(--shadow-card-hover);
   border-color: var(--color-primary-light);
 }
 
@@ -495,7 +495,7 @@ body {
 
 .dt-mkt-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,151,255,0.14);
+  box-shadow: var(--shadow-card-hover);
   border-color: var(--color-primary-light);
 }
 
@@ -903,7 +903,7 @@ body {
   right: 0;
   height: 64px;
   background: var(--color-white);
-  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-clay-sm);
   z-index: 200;
   display: flex;
   align-items: center;
