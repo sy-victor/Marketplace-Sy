@@ -86,7 +86,7 @@
     <a href="../colaborador/dashboard.html" class="view-switch-btn view-switch-collab"><img src="../../assets/sympla-coin.svg" width="16" height="16"> Sympler</a>
   </div>
 
-  <div class="integrations-grid" style="grid-template-columns:repeat(2,1fr);max-width:820px;">
+  <div class="integrations-grid" style="grid-template-columns:repeat(3,1fr);max-width:1180px;">
     <div class="int-card">
       <div class="int-header"><div class="int-icon" style="background:#ede9fe;">🎓</div><div><div class="int-name">Prosus Academy</div><div class="int-type">Treinamento e desenvolvimento</div></div></div>
       <div class="int-desc">Sincroniza trilhas de aprendizagem concluídas e credita Sympla Coins automaticamente por cursos e certificações finalizados.</div>
@@ -101,6 +101,14 @@
       <div class="int-status"><div class="status-dot green"></div><span class="status-label green">Conectado</span></div>
       <div class="int-meta">Última sync: há 27 min · 214 participantes ativos</div>
       <div class="int-actions"><button class="btn btn-secondary btn-sm">Configurar</button><button class="btn btn-ghost btn-sm" onclick="alert('Sync manual iniciado')">⟳ Sync</button></div>
+    </div>
+
+    <div class="int-card">
+      <div class="int-header"><div class="int-icon" style="background:#fef3c7;">🧑‍💼</div><div><div class="int-name">Sênior</div><div class="int-type">Sistema de RH e folha de pagamento</div></div></div>
+      <div class="int-desc">Sincroniza automaticamente a base de colaboradores (admissões, desligamentos e mudanças de área) direto do sistema de RH. Planejada para a V2.</div>
+      <div class="int-status"><div class="status-dot gray"></div><span class="status-label gray">Planejada — V2</span></div>
+      <div class="int-meta">Ainda não conectada</div>
+      <div class="int-actions"><button class="btn btn-secondary btn-sm" disabled>Configurar</button><button class="btn btn-ghost btn-sm" disabled>⟳ Sync</button></div>
     </div>
   </div>
 
@@ -131,7 +139,7 @@
     </div>
     <div class="webhook-row">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-        <div class="webhook-url">https://bi.empresa.com/api/v1/events</div>
+        <div class="webhook-url">https://senior.sympla.com.br/api/v1/colaboradores</div>
         <label class="toggle-switch"><input type="checkbox" /><span class="toggle-slider"></span></label>
       </div>
       <div class="webhook-events"><span class="event-tag">participante.criado</span><span class="event-tag">participante.inativo</span></div>

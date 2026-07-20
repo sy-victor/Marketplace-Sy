@@ -49,10 +49,18 @@
     /* ── Table ── */
     .table-card { background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,255,.08);overflow:hidden; }
     .table-wrap { overflow-x:auto; }
-    table { width:100%;border-collapse:collapse; }
+    table { width:100%;border-collapse:collapse;table-layout:fixed; }
     thead { background:#f8fafc; }
     th { padding:12px 16px;font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;text-align:left;border-bottom:1px solid #e5e7eb;white-space:nowrap; }
-    td { padding:14px 16px;font-size:14px;color:#1a1a2e;border-bottom:1px solid #f1f5f9; }
+    td { padding:14px 16px;font-size:14px;color:#1a1a2e;border-bottom:1px solid #f1f5f9;overflow:hidden;text-overflow:ellipsis; }
+    th:nth-child(1), td:nth-child(1) { width:40px; }
+    th:nth-child(2), td:nth-child(2) { width:22%; }
+    th:nth-child(3), td:nth-child(3) { width:12%; }
+    th:nth-child(4), td:nth-child(4) { width:11%; }
+    th:nth-child(5), td:nth-child(5) { width:9%; }
+    th:nth-child(6), td:nth-child(6) { width:10%; }
+    th:nth-child(7), td:nth-child(7) { width:13%; }
+    th:nth-child(8), td:nth-child(8) { width:auto;min-width:220px; }
     tr:last-child td { border-bottom:none; }
     tr:hover td { background:#f8fafc; }
     .user-cell { display:flex;align-items:center;gap:10px; }

@@ -165,8 +165,8 @@
     <select id="filterCat" onchange="filterProducts()">
       <option value="">Todas as categorias</option>
       <option value="Eletrônicos">Eletrônicos</option>
-      <option value="Vale-presentes">Vale-presentes</option>
-      <option value="Experiências">Experiências</option>
+      <option value="Vestuário">Vestuário</option>
+      <option value="Casa">Casa</option>
       <option value="Acessórios">Acessórios</option>
     </select>
     <select id="filterStock" onchange="filterProducts()">
@@ -210,33 +210,33 @@
         <div class="product-actions" onclick="event.stopPropagation()"><button class="action-btn action-btn-edit" onclick="openEditModal()">Repor</button><button class="action-btn action-btn-del" onclick="confirmDelete('Smartwatch Samsung')">Excluir</button></div>
       </div>
     </div>
-    <div class="product-card" data-mode="digital" data-cat="Vale-presentes" data-stock-level="ok" onclick="openEditModal(this)">
-      <div class="product-thumb">🛒</div>
+    <div class="product-card" data-mode="fisico" data-cat="Vestuário" data-stock-level="ok" data-stock="480" onclick="openEditModal(this)">
+      <div class="product-thumb">👕</div>
       <div class="product-body">
-        <div class="product-name">Vale Amazon R$ 50</div>
-        <div class="product-cat">Vale-presentes</div>
-        <div style="font-size:13px;color:#6b7280;">SKU: DIG-001</div>
-        <div class="product-footer"><span class="product-pts"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;" />500 SC</span><span class="product-stock stock-ok">● Ilimitado</span></div>
-        <div class="product-actions" onclick="event.stopPropagation()"><button class="action-btn action-btn-edit" onclick="openEditModal()">Editar</button><button class="action-btn action-btn-del" onclick="confirmDelete('Vale Amazon')">Excluir</button></div>
+        <div class="product-name">Camiseta Sympla</div>
+        <div class="product-cat">Vestuário</div>
+        <div style="font-size:13px;color:#6b7280;">SKU: FIS-004</div>
+        <div class="product-footer"><span class="product-pts"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;" />500 SC</span><span class="product-stock stock-ok">● 480 em estoque</span></div>
+        <div class="product-actions" onclick="event.stopPropagation()"><button class="action-btn action-btn-edit" onclick="openEditModal()">Editar</button><button class="action-btn action-btn-del" onclick="confirmDelete('Camiseta Sympla')">Excluir</button></div>
       </div>
     </div>
-    <div class="product-card" data-mode="digital" data-cat="Vale-presentes" data-stock-level="ok" onclick="openEditModal(this)">
-      <div class="product-thumb">🍕</div>
+    <div class="product-card" data-mode="fisico" data-cat="Casa" data-stock-level="ok" data-stock="312" onclick="openEditModal(this)">
+      <div class="product-thumb">☕</div>
       <div class="product-body">
-        <div class="product-name">Vale iFood R$ 100</div>
-        <div class="product-cat">Vale-presentes</div>
-        <div style="font-size:13px;color:#6b7280;">SKU: DIG-002</div>
-        <div class="product-footer"><span class="product-pts"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;" />1.000 SC</span><span class="product-stock stock-ok">● Ilimitado</span></div>
+        <div class="product-name">Caneca Sympla</div>
+        <div class="product-cat">Casa</div>
+        <div style="font-size:13px;color:#6b7280;">SKU: FIS-005</div>
+        <div class="product-footer"><span class="product-pts"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;" />300 SC</span><span class="product-stock stock-ok">● 312 em estoque</span></div>
         <div class="product-actions" onclick="event.stopPropagation()"><button class="action-btn action-btn-edit" onclick="openEditModal()">Editar</button><button class="action-btn action-btn-del">Excluir</button></div>
       </div>
     </div>
-    <div class="product-card" data-mode="digital" data-cat="Experiências" data-stock-level="low" onclick="openEditModal(this)">
-      <div class="product-thumb">🎬</div>
+    <div class="product-card" data-mode="fisico" data-cat="Casa" data-stock-level="low" data-stock="18" onclick="openEditModal(this)">
+      <div class="product-thumb">🚰</div>
       <div class="product-body">
-        <div class="product-name">Assinatura Streaming (1 mês)</div>
-        <div class="product-cat">Experiências</div>
-        <div style="font-size:13px;color:#6b7280;">SKU: DIG-010</div>
-        <div class="product-footer"><span class="product-pts"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;" />350 SC</span><span class="product-stock stock-low">⚠ 12 códigos</span></div>
+        <div class="product-name">Squeeze Sympla</div>
+        <div class="product-cat">Casa</div>
+        <div style="font-size:13px;color:#6b7280;">SKU: FIS-006</div>
+        <div class="product-footer"><span class="product-pts"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;" />350 SC</span><span class="product-stock stock-low">⚠ 18 em estoque</span></div>
         <div class="product-actions" onclick="event.stopPropagation()"><button class="action-btn action-btn-edit" onclick="openEditModal()">Editar</button><button class="action-btn action-btn-del">Excluir</button></div>
       </div>
     </div>
@@ -265,15 +265,11 @@
           </div>
 
       <div class="input-group"><label class="input-label">Nome do Prêmio</label><input type="text" class="input-field" placeholder="Ex: Fone Bluetooth JBL" /></div>
-      <div class="input-group"><label class="input-label">Categoria</label><select class="select-field"><option>Eletrônicos</option><option>Vale-presentes</option><option>Experiências</option><option>Acessórios</option></select></div>
+      <div class="input-group"><label class="input-label">Categoria</label><select class="select-field"><option>Eletrônicos</option><option>Vestuário</option><option>Casa</option><option>Acessórios</option></select></div>
       <div class="input-group"><label class="input-label">Custo em Sympla Coins</label><input type="number" class="input-field" placeholder="Ex: 800" /></div>
       <div id="physicalFields" class="form-col">
-        <div class="input-group"><label class="input-label">Quantidade em Estoque <span class="tooltip-wrapper"><button class="tooltip-icon">ⓘ</button><span class="tooltip-box">Informe -1 para quantidade ilimitada.</span></span></label><input type="number" class="input-field" placeholder="Ex: 50" /></div>
+        <div class="input-group"><label class="input-label">Quantidade em Estoque <span class="tooltip-wrapper"><button class="tooltip-icon">ⓘ</button><span class="tooltip-box">Quantidade real disponível para resgate — exibida para o Sympler no marketplace.</span></span></label><input type="number" class="input-field" placeholder="Ex: 50" min="0" /></div>
         <div class="input-group"><label class="input-label">Prazo de entrega <span class="tooltip-wrapper"><button class="tooltip-icon">ⓘ</button><span class="tooltip-box">Dias úteis a partir da confirmação do resgate</span></span></label><select class="select-field"><option value="">Selecione...</option><option value="1">1 dia útil</option><option value="2">2 dias útils</option><option value="3">3 dias útils</option><option value="4">4 dias útils</option><option value="5">5 dias útils</option><option value="6">6 dias útils</option><option value="7">7 dias útils</option><option value="8">8 dias útils</option><option value="9">9 dias útils</option><option value="10">10 dias útils</option><option value="11">11 dias útils</option><option value="12">12 dias útils</option><option value="13">13 dias útils</option><option value="14">14 dias útils</option><option value="15">15 dias útils</option><option value="16">16 dias útils</option><option value="17">17 dias útils</option><option value="18">18 dias útils</option><option value="19">19 dias útils</option><option value="20">20 dias útils</option></select></div>
-      </div>
-      <div id="digitalFields" class="form-col" style="display:none;">
-        <div class="input-group"><label class="input-label">Tipo de Entrega Digital</label><select class="select-field"><option>Código de voucher</option><option>Link de acesso</option><option>API automática</option></select></div>
-        <div class="input-group"><label class="input-label">Códigos disponíveis</label><textarea class="textarea-field" placeholder="Cole os códigos (um por linha)..."></textarea></div>
       </div>
       <div class="input-group"><label class="input-label">Descrição</label><textarea class="textarea-field" placeholder="Descreva o prêmio para os participantes..."></textarea></div>
     </div>
@@ -314,9 +310,8 @@ function openAddModal() { document.getElementById('modalTitle').textContent = 'N
 function openEditModal() { document.getElementById('modalTitle').textContent = 'Editar Prêmio'; document.getElementById('itemModal').classList.add('open'); }
 function closeModal() { document.getElementById('itemModal').classList.remove('open'); }
 function setModalMode(mode) {
-  document.getElementById('mToggleFisico').className = 'modal-toggle-btn' + (mode==='fisico' ? ' active' : '');
-  document.getElementById('physicalFields').style.display = mode==='fisico' ? '' : 'none';
-  document.getElementById('digitalFields').style.display = mode==='digital' ? '' : 'none';
+  document.getElementById('mToggleFisico').className = 'modal-toggle-btn active';
+  document.getElementById('physicalFields').style.display = '';
 }
 function confirmDelete(name) { if(confirm('Excluir "' + name + '"?')) alert('Item removido.'); }
 filterProducts();

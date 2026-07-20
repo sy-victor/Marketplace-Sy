@@ -226,6 +226,16 @@ function confirmarItem(btn) {
   const badges = row.querySelectorAll('.badge');
   badges.forEach(b => { if(b.textContent.trim() === 'Pendente') { b.className = 'badge badge-success'; b.textContent = 'Aprovado'; } });
   btn.parentElement.innerHTML = '<button class="action-btn action-btn-view">Ver</button>';
+  notificarParticipantePorEmail(row);
+}
+
+// E-mail automático: disparado pelo sistema assim que o status muda para
+// "Aprovado" — o admin não precisa (nem consegue) enviar manualmente.
+// Numa integração real, isso seria feito no backend, na mesma transação
+// que atualiza o status do resgate (garante que o e-mail nunca é esquecido).
+function notificarParticipantePorEmail(row) {
+  const email = row.querySelector('.user-email')?.textContent || '';
+  console.log('[e-mail automático] Notificação de aprovação enviada para ' + email);
 }
 function abrirRecusa(btn) {
   rowEmRecusa = btn.closest('tr');
@@ -252,7 +262,8 @@ function confirmarRecusa() {
 function approveAll() {
   const checked = document.querySelectorAll('#resgatesBody input[type=checkbox]:checked');
   if(!checked.length) { alert('Selecione ao menos um resgate.'); return; }
-  alert(checked.length + ' resgates confirmados!');
+  checked.forEach(cb => notificarParticipantePorEmail(cb.closest('tr')));
+  alert(checked.length + ' resgates confirmados! E-mail de confirmação enviado automaticamente a cada participante.');
 }
 </script>
 </body>

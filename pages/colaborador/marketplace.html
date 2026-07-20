@@ -72,23 +72,25 @@
     <div class="dt-grid-4" id="mktGrid">
 
       <!-- Brindes Sympla -->
-      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-camisa')">
+      <div class="dt-mkt-card" id="card-modal-camisa" data-cat="brindes" onclick="openModal('modal-camisa')">
         <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#cce8ff);">👕</div>
         <div class="dt-mkt-card-body">
           <div class="dt-mkt-card-name">Camiseta Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo · Edição limitada</div>
           <div class="dt-mkt-card-price">300 <span>Sympla Coins</span></div>
-          <button class="dt-mkt-card-btn">Resgatar</button>
+          <div class="dt-mkt-card-stock" id="stock-modal-camisa">8 disponíveis</div>
+          <button class="dt-mkt-card-btn" id="btn-modal-camisa">Resgatar</button>
         </div>
       </div>
 
-      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-mochila')">
+      <div class="dt-mkt-card" id="card-modal-mochila" data-cat="brindes" onclick="openModal('modal-mochila')">
         <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#cce8ff);">🎒</div>
         <div class="dt-mkt-card-body">
           <div class="dt-mkt-card-name">Mochila Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo · Premium</div>
           <div class="dt-mkt-card-price">800 <span>Sympla Coins</span></div>
-          <button class="dt-mkt-card-btn">Resgatar</button>
+          <div class="dt-mkt-card-stock" id="stock-modal-mochila">3 disponíveis</div>
+          <button class="dt-mkt-card-btn" id="btn-modal-mochila">Resgatar</button>
         </div>
       </div>
 
@@ -99,57 +101,63 @@
           <div class="dt-mkt-card-name">Boné Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo</div>
           <div class="dt-mkt-card-price" style="color:var(--color-text-light);">200 <span>Sympla Coins</span></div>
+          <div class="dt-mkt-card-stock">0 disponíveis</div>
           <button class="dt-mkt-card-btn esgotado" disabled>Esgotado</button>
         </div>
       </div>
 
-      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-caneca')">
+      <div class="dt-mkt-card" id="card-modal-caneca" data-cat="brindes" onclick="openModal('modal-caneca')">
         <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#cce8ff);">☕</div>
         <div class="dt-mkt-card-body">
           <div class="dt-mkt-card-name">Caneca Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo · Cerâmica</div>
           <div class="dt-mkt-card-price">150 <span>Sympla Coins</span></div>
-          <button class="dt-mkt-card-btn">Resgatar</button>
+          <div class="dt-mkt-card-stock" id="stock-modal-caneca">12 disponíveis</div>
+          <button class="dt-mkt-card-btn" id="btn-modal-caneca">Resgatar</button>
         </div>
       </div>
 
-      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-caderno')">
+      <div class="dt-mkt-card" id="card-modal-caderno" data-cat="brindes" onclick="openModal('modal-caderno')">
         <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#fff9e6,#ffe066);">📓</div>
         <div class="dt-mkt-card-body">
           <div class="dt-mkt-card-name">Caderno Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo · Capa dura A5</div>
           <div class="dt-mkt-card-price">120 <span>Sympla Coins</span></div>
-          <button class="dt-mkt-card-btn">Resgatar</button>
+          <div class="dt-mkt-card-stock" id="stock-modal-caderno">15 disponíveis</div>
+          <button class="dt-mkt-card-btn" id="btn-modal-caderno">Resgatar</button>
         </div>
       </div>
 
-      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-leque')">
+      <div class="dt-mkt-card" id="card-modal-leque" data-cat="brindes" onclick="openModal('modal-leque')">
         <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6fff0,#b4f0c8);">🪭</div>
         <div class="dt-mkt-card-body">
           <div class="dt-mkt-card-name">Leque Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo · Edição especial</div>
           <div class="dt-mkt-card-price">80 <span>Sympla Coins</span></div>
-          <button class="dt-mkt-card-btn">Resgatar</button>
+          <div class="dt-mkt-card-stock" id="stock-modal-leque">20 disponíveis</div>
+          <button class="dt-mkt-card-btn" id="btn-modal-leque">Resgatar</button>
         </div>
       </div>
 
-      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-adesivos')">
+      <div class="dt-mkt-card" id="card-modal-adesivos" data-cat="brindes" onclick="openModal('modal-adesivos')">
         <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#fce7f3,#f9a8d4);">🎨</div>
         <div class="dt-mkt-card-body">
           <div class="dt-mkt-card-name">Pack de Adesivos Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo · 12 adesivos temáticos</div>
           <div class="dt-mkt-card-price">60 <span>Sympla Coins</span></div>
-          <button class="dt-mkt-card-btn">Resgatar</button>
+          <div class="dt-mkt-card-stock" id="stock-modal-adesivos">50 disponíveis</div>
+          <button class="dt-mkt-card-btn" id="btn-modal-adesivos">Resgatar</button>
         </div>
       </div>
 
-      <div class="dt-mkt-card" data-cat="brindes" onclick="openModal('modal-suporte')">
+      <div class="dt-mkt-card" id="card-modal-suporte" data-cat="brindes" onclick="openModal('modal-suporte')">
         <div class="dt-mkt-card-thumb" style="background:linear-gradient(135deg,#e6f4ff,#93c5fd);">🧋</div>
         <div class="dt-mkt-card-body">
           <div class="dt-mkt-card-name">Suporte de Copo Sympla</div>
           <div class="dt-mkt-card-brand">Brinde exclusivo · Silicone antiderrapante</div>
           <div class="dt-mkt-card-price">90 <span>Sympla Coins</span></div>
-          <button class="dt-mkt-card-btn">Resgatar</button>
+          <div class="dt-mkt-card-stock" id="stock-modal-suporte">10 disponíveis</div>
+          <button class="dt-mkt-card-btn" id="btn-modal-suporte">Resgatar</button>
         </div>
       </div>
 
@@ -186,20 +194,68 @@
     'modal-suporte':   { emoji:'🧋', name:'Suporte de Copo Sympla',  price:90,  desc:'Brinde exclusivo · Silicone antiderrapante', estoque:10 },
   };
   let currentItemId = null;
+  const userEmail = 'ana.lima@sympla.com.br';
 
   let currentSaldo = 1250;
+
+  // Limite de estoque a partir do qual o card mostra aviso de "últimas unidades"
+  const ESTOQUE_BAIXO = 5;
+
+  function refreshCardState(id) {
+    const item = items[id];
+    if (!item) return;
+    const stockEl = document.getElementById('stock-' + id);
+    const btnEl = document.getElementById('btn-' + id);
+    const cardEl = document.getElementById('card-' + id);
+    if (!stockEl || !btnEl || !cardEl) return;
+
+    if (item.estoque <= 0) {
+      stockEl.textContent = '0 disponíveis';
+      btnEl.textContent = 'Esgotado';
+      btnEl.disabled = true;
+      btnEl.className = 'dt-mkt-card-btn esgotado';
+      cardEl.removeAttribute('onclick');
+      return;
+    }
+
+    stockEl.textContent = item.estoque + ' disponíve' + (item.estoque === 1 ? 'l' : 'is');
+    stockEl.classList.toggle('low', item.estoque <= ESTOQUE_BAIXO);
+
+    // Limitador de coins: bloqueia resgate se o saldo não for suficiente
+    if (currentSaldo < item.price) {
+      btnEl.textContent = 'Coins insuficientes';
+      btnEl.disabled = true;
+      btnEl.className = 'dt-mkt-card-btn insuficiente';
+    } else {
+      btnEl.textContent = 'Resgatar';
+      btnEl.disabled = false;
+      btnEl.className = 'dt-mkt-card-btn';
+    }
+  }
+
+  function refreshAllCards() {
+    Object.keys(items).forEach(refreshCardState);
+  }
 
   function openModal(id) {
     const item = items[id];
     if (!item) return;
+
     if (item.estoque <= 0) {
       showEsgotadoMsg(item.name);
       return;
     }
+
+    // Limitador de coins: impede abrir o resgate sem saldo suficiente
+    if (currentSaldo < item.price) {
+      showSaldoInsuficienteMsg(item);
+      return;
+    }
+
     currentItemId = id;
     document.getElementById('modalEmoji').textContent = item.emoji;
     document.getElementById('modalTitle').textContent = item.name;
-    document.getElementById('modalDesc').textContent = item.desc;
+    document.getElementById('modalDesc').innerHTML = 'Você tem <strong id="modalSaldoAtual"><img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /> ' + currentSaldo.toLocaleString('pt-BR') + '</strong> Sympla Coins.';
     document.getElementById('modalPrice').innerHTML = '<img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> ' + item.price + ' Sympla Coins';
     document.getElementById('modalSaldo').innerHTML = '<img src="../../assets/sympla-coin.svg" alt="SC" style="width:14px;height:14px;vertical-align:middle;" /> ' + (currentSaldo - item.price);
     document.getElementById('modalOverlay').setAttribute('data-price', item.price);
@@ -216,30 +272,39 @@
     const item = items[currentItemId];
     if (!item) return;
 
+    // Revalida estoque e saldo no momento da confirmação (evita corrida entre abas/duplo clique)
     if (item.estoque <= 0) {
       document.getElementById('modalOverlay').classList.remove('active');
       showEsgotadoMsg(item.name);
       return;
     }
 
-    item.estoque -= 1;
-
     const price = parseInt(document.getElementById('modalOverlay').getAttribute('data-price'));
+
+    if (currentSaldo < price) {
+      document.getElementById('modalOverlay').classList.remove('active');
+      showSaldoInsuficienteMsg(item);
+      return;
+    }
+
+    item.estoque -= 1;
     currentSaldo -= price;
+
     document.getElementById('modalOverlay').classList.remove('active');
     document.querySelectorAll('.dt-topbar-coins').forEach(el => el.innerHTML = '<img src="../../assets/sympla-coin.svg" alt="SC" style="width:18px;height:18px;vertical-align:middle;margin-right:4px;" /> ' + currentSaldo.toLocaleString('pt-BR') + '');
 
-    if (item.estoque <= 0) {
-      document.querySelectorAll('.dt-mkt-card').forEach(card => {
-        if (card.getAttribute('onclick') && card.getAttribute('onclick').includes(currentItemId)) {
-          const btn = card.querySelector('.dt-mkt-card-btn');
-          if (btn) { btn.textContent = 'Esgotado'; btn.disabled = true; btn.classList.add('esgotado'); }
-          card.removeAttribute('onclick');
-        }
-      });
-    }
-
+    refreshAllCards();
+    sendRedemptionEmail(item);
     showSucessoMsg(item.name, price);
+  }
+
+  // E-mail automático de confirmação de resgate.
+  // Protótipo estático: aqui simulamos o disparo. Numa integração real, esta
+  // chamada dispararia automaticamente ao backend (ex.: endpoint /resgates
+  // que credita o resgate e, na mesma transação, aciona o envio de e-mail —
+  // não deve depender de nenhuma ação manual do admin).
+  function sendRedemptionEmail(item) {
+    console.log('[e-mail automático] Confirmação de resgate enviada para ' + userEmail + ' — item: ' + item.name);
   }
 
   function showEsgotadoMsg(nome) {
@@ -250,10 +315,19 @@
     setTimeout(() => toast.remove(), 4000);
   }
 
+  function showSaldoInsuficienteMsg(item) {
+    const faltam = item.price - currentSaldo;
+    const toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#b45309;color:#fff;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-width:380px;text-align:center;';
+    toast.textContent = '🪙 Coins insuficientes. Faltam ' + faltam.toLocaleString('pt-BR') + ' Sympla Coins para resgatar ' + item.name + '.';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+  }
+
   function showSucessoMsg(nome, preco) {
     const toast = document.createElement('div');
     toast.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#22c55e;color:#fff;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-width:380px;text-align:center;';
-    toast.textContent = '✅ Resgate confirmado! ' + nome + ' — você receberá em até 2 dias úteis.';
+    toast.textContent = '✅ Resgate confirmado! ' + nome + ' — você receberá em até 2 dias úteis. Enviamos a confirmação para o seu e-mail.';
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 5000);
   }
@@ -277,6 +351,8 @@
       card.style.display = matchCat && matchSearch ? 'flex' : 'none';
     });
   }
+
+  refreshAllCards();
 </script>
 </body>
 </html>
